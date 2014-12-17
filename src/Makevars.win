@@ -1,0 +1,2 @@
+PKG_CPPFLAGS=-g -D_R_=1 -DUSE_R=1 -I"${CPLEX_STUDIO_DIR}\cplex\include"
+PKG_LIBS=-L"${CPLEX_STUDIO_LIB}" -lm -lcplex126

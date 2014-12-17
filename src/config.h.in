@@ -1,0 +1,7 @@
+/* config.h.in (cplexAPI configuration template file) */
+
+#undef USE_CHECK
+/* defined if the <check.c> can be used */
+
+
+/* eof */

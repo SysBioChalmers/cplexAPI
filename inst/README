@@ -1,0 +1,6 @@
+GNU R package cplexAPI: R Interface to C API of IBM ILOG CPLEX
+
+The package cplexAPI requires a working installation of IBM ILOG CPLEX
+(version >= 12.1). For regulary usage of IBM ILOG CPLEX, the environment
+variable ILOG_LICENSE_FILE must be set to the location of the IBM ILOG CPLEX
+license file.

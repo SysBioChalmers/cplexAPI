@@ -1,0 +1,117 @@
+GNU R package cplexAPI: R Interface to C API of IBM ILOG CPLEX
+
+
+The installation procedure for the cplexAPI package needs to know where to
+find the CPLEX include directory and where to find the callable library.
+
+
+# ---------------------------------------------------------------------------- #
+# Linux and MacOS X installation
+# ---------------------------------------------------------------------------- #
+
+The locations of the CPLEX callable library and the CPLEX include directory
+can be found in <cplex_dir>/README.html>, where <cplex_dir> is the CPLEX
+installation directory.  Also have a look at the variables CLNFLAGS and COPT
+in the example Makefile of your CPLEX installation. There, the variable
+CPLEXLIBDIR points to the callable library directory.
+
+
+There are several ways of installing the cplexAPI package:
+
+1) Set variables PKG_CFLAGS, PKG_CPPFLAGS and PKG_LIBS directly, e.g.:
+
+   R CMD INSTALL --configure-args =" \
+   PKG_CFLAGS='-m64 -fPIC' \
+   PKG_CPPFLAGS='-I<cplex_dir>/cplex/include' \
+   PKG_LIBS='-L${CPLEXLIBDIR} -lcplex -m64 -lm -pthread'" \
+   cplexAPI_x.x.x.tar.gz
+
+   PKF_CFLAGS is optional, but both PKG_CPPFLAGS and PKG_LIBS must be given.
+
+2) Use --with-cplex-<ARG>:
+
+   --with-cplex-include=PATH    with PATH being the include directory of CPLEX
+
+   --with-cplex-lib=PATH        with PATH being the directory containing the
+                                callable library of CPLEX.
+
+   R CMD INSTALL --configure-args=" \
+       --with-cplex-include=/path/to/include/dir \
+       --with-cplex-lib=/path/to/lib/dir" cplexAPI_x.x.x.tar.gz
+
+   When using --with-cplex-<ARG>, both arguments --with-cplex-lib and
+   --with-cplex-include must be given.
+
+   --with-cplex-link=-l...      libraries to path to the linker during
+                                compilation.
+
+   If --with-cplex-link is not given, '-lcplex -lm -pthread' will be used
+   as default.
+
+   --with-cplex-cflags=...       optional CFLAGS
+
+   A further argument can be used in order to use the debuging routines included
+   in the C API of CPLEX:
+
+   --with-cplex-check=PATH      with PATH being the directory containing the
+                                file check.c from the CPLEX examples directory.
+
+   R CMD INSTALL --configure-args=" \
+   --with-cplex-lib='/path/to/lib/dir' \
+   --with-cplex-include='/path/to/include/dir' \
+   --with-cplex-link='-lcplex -m64 -lm -pthread' \
+   --with-cplex-cflags='-m64 -fPIC' \
+   --with-cplex-check='/path/to/examples/dir/examples/src/c'" \
+   cplexAPI_x.x.x.tar.gz
+
+
+3) Give the location of the CPLEX installation:
+
+   --with-cplex-dir=PATH
+   
+   with PATH being the CPLEX directory. This is not the CPLEX installation
+   directory <cplex_dir>, it is the directory including the lib/ include/ and
+   examples/ directory. Usually this is <cplex_dir>/cplex.
+
+   R CMD INSTALL --configure-args=" 
+   --with-cplex-dir='<cplex_dir>/cplex'" \
+   cplexAPI_x.x.x.tar.gz
+
+   This procedure will take the first system type and library format it finds.
+   Information reqired for the compilation is taken from the example Makefile.
+
+
+4) Give no information:
+
+   R CMD INSTALL cplexAPI_x.x.x.tar.gz
+   
+   This procedure will try to find the CPLEX interactive optimizer, or the
+   CPLEX_BIN environment variable pointing to the CPLEX interactive optimizer
+   will be used. The directory two levels above is used as CPLEX directory, all
+   other information is taken from teh CPLEX example Makefile as in #3 above.
+
+
+# ---------------------------------------------------------------------------- #
+# Windows installation
+# ---------------------------------------------------------------------------- #
+
+For the installation on Windows systems the file Makewars.win in src/ is
+required. The file looks like this:
+
+PKG_CPPFLAGS=-g -D_R_=1 -DUSE_R=1 -I"${CPLEX_STUDIO_DIR}\cplex\include"
+PKG_LIBS=-L"${CPLEX_STUDIO_LIB32}" -L"${CPLEX_STUDIO_LIB64}" -lm -lcplex124
+
+with the environment variable CPLEX_PATH being the installation directory
+of CPLEX. This procedure was tested successfully on 32-bit Windows XP.
+
+
+# ---------------------------------------------------------------------------- #
+
+See also: http://www.stats.ox.ac.uk/~ripley/Win64/W64porting.html
+
+If you want to have both 32- and 64 bit DLLs of libcplex in your PATH,
+a good way is to set PATH in
+R_HOME/etc/i386/Renviron.site for 32-bit and in
+R_HOME/etc/x64/Renviron.site for 64-bit.
+Also the variables CPLEX_STUDIO_DIR, CPLEX_STUDIO_LIB32 and
+CPLEX_STUDIO_LIB64 can be set here.
