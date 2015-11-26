@@ -58,10 +58,11 @@
 }
 
 \author{
-  Gabriel Gelius-Dietrich
+  Gabriel Gelius-Dietrich <geliudie@uni-duesseldorf.de>
 
-  Maintainer: Gabriel Gelius-Dietrich <geliudie@uni-duesseldorf.de>
+  Maintainer: Claus Jonathan Fritzemeier <clausjonathan.fritzemeier@uni-duesseldorf.de>
 }
+
 
 \seealso{
   \code{\link{getNumRowsCPLEX}}, \code{\link{getNumColsCPLEX}},

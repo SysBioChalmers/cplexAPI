@@ -46,10 +46,11 @@
 }
 
 \author{
-  Gabriel Gelius-Dietrich
+  Gabriel Gelius-Dietrich <geliudie@uni-duesseldorf.de>
 
-  Maintainer: Gabriel Gelius-Dietrich <geliudie@uni-duesseldorf.de>
+  Maintainer: Claus Jonathan Fritzemeier <clausjonathan.fritzemeier@uni-duesseldorf.de>
 }
+
 
 \note{
   In order to get a 64 bit integer value from \code{CPXinfolongparam},
