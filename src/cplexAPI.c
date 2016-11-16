@@ -6032,7 +6032,7 @@ SEXP getQuad(SEXP env, SEXP lp, SEXP begin, SEXP end) {
             qmatsp -= sp;
             PROTECT(qmatind = Rf_allocVector(INTSXP, qmatsp));
             PROTECT(qmatval = Rf_allocVector(REALSXP, qmatsp));
-            status = CPXgetcols(R_ExternalPtrAddr(env), R_ExternalPtrAddr(lp),
+            status = CPXgetquad(R_ExternalPtrAddr(env), R_ExternalPtrAddr(lp),
                                 &nnz, INTEGER(qmatbeg), INTEGER(qmatind),
                                 REAL(qmatval), qmatsp, &sp,
                                 Rf_asInteger(begin), Rf_asInteger(end)

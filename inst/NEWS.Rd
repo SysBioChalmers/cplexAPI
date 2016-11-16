@@ -4,6 +4,12 @@
 \title{cplexAPI News}
 \encoding{UTF-8}
 
+% ---------------------------------------------------------------------------- %
+\section{Changes in version 1.3.2 2016-11-16}{
+  \itemize{
+    \item Fixed a bug in \code{getQuad()}. Thx to Florian Schwendinger.
+  }
+}
 
 % ---------------------------------------------------------------------------- %
 \section{Changes in version 1.2.11 2014-07-28}{
