@@ -3063,6 +3063,19 @@ readCopyOrderCPLEX <- function(env, lp, fname) {
 }
 
 
+
+
+#------------------------------------------------------------------------------#
+getNumQConstrsCPLEX <- function(env, lp) {
+
+    nq <- .Call("getNumQConstrs", PACKAGE = "cplexAPI",
+                cplexPointer(env),
+                cplexPointer(lp)
+          )
+
+    return(nq)
+}
+
 #------------------------------------------------------------------------------#
 
 addQConstrCPLEX <- function(env, lp, lzn, qzn, rhs, sense,

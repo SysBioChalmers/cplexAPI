@@ -6195,6 +6195,7 @@ SEXP ordWrite(SEXP env, SEXP lp, SEXP fname) {
 }
 
 
+
 /* -------------------------------------------------------------------------- */
 /* read ORD file and copy priority order information into a problem object */
 SEXP readCopyOrder(SEXP env, SEXP lp, SEXP fname) {
@@ -6217,6 +6218,24 @@ SEXP readCopyOrder(SEXP env, SEXP lp, SEXP fname) {
     return out;
 }
 
+
+/* -------------------------------------------------------------------------- */
+/* get number of quadratic constraint of a specified CPLEX problem object */
+SEXP getNumQConstrs(SEXP env, SEXP lp) {
+
+    SEXP out = R_NilValue;
+    int qconstrs = 0;
+
+    checkEnv(env);
+    checkProb(lp);
+
+    qconstrs = CPXgetnumqconstrs(R_ExternalPtrAddr(env),
+    R_ExternalPtrAddr(lp));
+
+    out = Rf_ScalarInteger(qconstrs);
+
+    return out;
+}
 
 /* -------------------------------------------------------------------------- */
 /* add quadratic constraint to a specified CPLEX problem object */

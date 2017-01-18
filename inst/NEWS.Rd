@@ -8,6 +8,8 @@
 \section{Changes in version 1.3.2 2016-11-16}{
   \itemize{
     \item Fixed a bug in \code{getQuad()}. Thx to Florian Schwendinger.
+    \item Added function \code{getNumQConstrsCPLEX} to access cplex function
+    	\code{CPXgetnumqconstrs}
   }
 }
 

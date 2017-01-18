@@ -95,6 +95,7 @@ CPXgetdj                     <- cplexAPI::getDjCPLEX
 CPXgeterrorstring            <- cplexAPI::getErrorStrCPLEX
 CPXgetgrad                   <- cplexAPI::getGradCPLEX
 CPXgetindconstr              <- cplexAPI::getIndConstrCPLEX
+CPXgetnumqconstrs            <- cplexAPI::getNumQConstrsCPLEX
 CPXinfodblparam              <- cplexAPI::getInfoDblParmCPLEX
 CPXinfointparam              <- cplexAPI::getInfoIntParmCPLEX
 CPXinfolongparam             <- cplexAPI::getInfoLongParmCPLEX

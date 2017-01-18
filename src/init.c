@@ -220,6 +220,7 @@ static const R_CallMethodDef callMethods[] = {
     {"getOrder",                  (DL_FUNC) &getOrder,                  2},
     {"ordWrite",                  (DL_FUNC) &ordWrite,                  3},
     {"readCopyOrder",             (DL_FUNC) &readCopyOrder,             3},
+    {"getNumQConstrs",            (DL_FUNC) &getNumQConstrs,            2},
     {"addQConstr",                (DL_FUNC) &addQConstr,               12},
     {"delQConstrs",               (DL_FUNC) &delQConstrs,               4},
     {"getQConstr",                (DL_FUNC) &getQConstr,                3},
