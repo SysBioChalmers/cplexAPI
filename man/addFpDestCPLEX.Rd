@@ -23,7 +23,7 @@
   }
   \item{newch}{
     Pointer to an IBM ILOG CPLEX channel as returned by
-    \code{\link{addChannelCPLEX}}.
+    \code{addChannelCPLEX}.
   }
   \item{cpfile}{
     Pointer to an IBM ILOG CPLEX file as returned by

@@ -4,7 +4,7 @@
 
 # IBM ILOG CPLEX                # cplexAPI
 
-CPXaddchannel                <- cplexAPI::addChannelCPLEX
+#CPXaddchannel                <- cplexAPI::addChannelCPLEX
 CPXaddcols                   <- cplexAPI::addColsCPLEX
 CPXaddfpdest                 <- cplexAPI::addFpDestCPLEX
 CPXaddindconstr              <- cplexAPI::addIndConstrCPLEX
@@ -55,7 +55,7 @@ CPXcopypartialbase           <- cplexAPI::copyPartBaseCPLEX
 CPXcopyqpsep                 <- cplexAPI::copyQPsepCPLEX
 CPXcopyquad                  <- cplexAPI::copyQuadCPLEX
 CPXcopystart                 <- cplexAPI::copyStartCPLEX
-CPXdelchannel                <- cplexAPI::delChannelCPLEX
+#CPXdelchannel                <- cplexAPI::delChannelCPLEX
 CPXdelcols                   <- cplexAPI::delColsCPLEX
 CPXdelfpdest                 <- cplexAPI::delFpDestCPLEX
 CPXdelindconstrs             <- cplexAPI::delIndConstrsCPLEX

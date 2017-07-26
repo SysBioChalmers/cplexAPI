@@ -189,8 +189,8 @@ static const R_CallMethodDef callMethods[] = {
     {"getLogFile",                (DL_FUNC) &getLogFile,                2},
     {"getChannels",               (DL_FUNC) &getChannels,               2},
     {"flushStdChannels",          (DL_FUNC) &flushStdChannels,          1},
-    {"addChannel",                (DL_FUNC) &addChannel,                2},
-    {"delChannel",                (DL_FUNC) &delChannel,                2},
+/*    {"addChannel",                (DL_FUNC) &addChannel,                2},*/
+/*    {"delChannel",                (DL_FUNC) &delChannel,                2},*/
     {"disconnectChannel",         (DL_FUNC) &disconnectChannel,         2},
     {"flushChannel",              (DL_FUNC) &flushChannel,              2},
     {"addFpDest",                 (DL_FUNC) &addFpDest,                 3},

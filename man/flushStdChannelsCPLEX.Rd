@@ -46,7 +46,6 @@
 
 
 \seealso{
-  \code{\link{addChannelCPLEX}}, \code{\link{delChannelCPLEX}},
   \code{\link{disconnectChannelCPLEX}}, \code{\link{flushChannelCPLEX}},
   \code{\link{getChannelsCPLEX}}
 }

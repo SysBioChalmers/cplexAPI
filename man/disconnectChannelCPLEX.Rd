@@ -24,7 +24,7 @@
   }
   \item{newch}{
     A pointer to the channel containing the message destinations as returned by
-    \code{\link{CPXaddchannel}}.
+    \code{CPXaddchannel}.
   }
 }
 
@@ -50,7 +50,6 @@
 
 
 \seealso{
-  \code{\link{addChannelCPLEX}}, \code{\link{delChannelCPLEX}},
   \code{\link{flushChannelCPLEX}}, \code{\link{flushStdChannelsCPLEX}},
   \code{\link{getChannelsCPLEX}}
 }

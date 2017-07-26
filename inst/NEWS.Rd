@@ -3,6 +3,20 @@
 \name{NEWS}
 \title{cplexAPI News}
 \encoding{UTF-8}
+% ---------------------------------------------------------------------------- %
+
+\section{Changes in version 1.3.4 2017-07-26}{
+  \itemize{
+    \item The function \code{solution} should avoid returning the dual solution if solved \code{FIXEDMILP}, \code{MILP}, \code{QCP}, \code{MIQCP}, \code{MIQP}, and \code{FIXEDMIQP}.
+  }
+}
+
+\section{Changes in version 1.3.3 2017-01-18}{
+  \itemize{
+    \item In CPLEX Version 1270 are the functions \code{CPXaddchannel} and
+    	\code{CPXdelchannel} removed (\url{http://www.ibm.com/support/knowledgecenter/SSSA5P_12.7.0/ilog.odms.cplex.help/CPLEX/ReleaseNotes/topics/releasenotes127/removed.html}).
+  }
+}
 
 % ---------------------------------------------------------------------------- %
 \section{Changes in version 1.3.2 2016-11-16}{

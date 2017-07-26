@@ -23,7 +23,7 @@
     IBM ILOG CPLEX environment.
   }
   \item{newch}{
-    Pointer to a channel object as returned by \code{\link{addChannelCPLEX}}.
+    Pointer to a channel object as returned by \code{addChannelCPLEX}.
   }
 }
 
@@ -49,7 +49,6 @@
 
 
 \seealso{
-  \code{\link{addChannelCPLEX}}, \code{\link{delChannelCPLEX}},
   \code{\link{disconnectChannelCPLEX}}, \code{\link{flushStdChannelsCPLEX}},
   \code{\link{getChannelsCPLEX}}
 }

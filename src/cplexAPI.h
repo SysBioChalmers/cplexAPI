@@ -571,10 +571,10 @@ SEXP getChannels(SEXP env, SEXP ptrtype);
 SEXP flushStdChannels(SEXP env);
 
 /* instantiate a new channel object */
-SEXP addChannel(SEXP env, SEXP ptrtype);
+//SEXP addChannel(SEXP env, SEXP ptrtype);
 
 /* flush all message destinations for a channel, ... */
-SEXP delChannel(SEXP env, SEXP newch);
+//SEXP delChannel(SEXP env, SEXP newch);
 
 /* flush all message destinations associated with a channel */
 SEXP disconnectChannel(SEXP env, SEXP newch);

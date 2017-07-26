@@ -2538,31 +2538,31 @@ flushStdChannelsCPLEX <- function(env) {
 
 #------------------------------------------------------------------------------#
 
-addChannelCPLEX <- function(env, ptrtype = "cplex_chan") {
+#addChannelCPLEX <- function(env, ptrtype = "cplex_chan") {
 
-    newch <- .Call("addChannel", PACKAGE = "cplexAPI",
-                   cplexPointer(env),
-                   as.character(ptrtype)
-              )
+#    newch <- .Call("addChannel", PACKAGE = "cplexAPI",
+#                   cplexPointer(env),
+#                   as.character(ptrtype)
+#              )
 
-    newchP <- cplex_ChannelPointer(newch)
+#    newchP <- cplex_ChannelPointer(newch)
 
-    return(newchP)
-}
+#    return(newchP)
+#}
 
 
 #------------------------------------------------------------------------------#
 
-delChannelCPLEX <- function(env, newch) {
+#delChannelCPLEX <- function(env, newch) {
 
-    invisible(
-        .Call("delChannel", PACKAGE = "cplexAPI",
-              cplexPointer(env),
-              cplexPointer(newch)
-        )
-    )
+#    invisible(
+#        .Call("delChannel", PACKAGE = "cplexAPI",
+#              cplexPointer(env),
+#              cplexPointer(newch)
+#        )
+#    )
 
-}
+#}
 
 
 #------------------------------------------------------------------------------#

@@ -24,7 +24,7 @@
   }
   \item{newch}{
     A pointer to the channel for which destinations are to be deleted as
-    returned by \code{\link{CPXaddchannel}}.
+    returned by \code{CPXaddchannel}.
   }
   \item{cpfile}{
     Pointer to an IBM ILOG CPLEX file as returned by
