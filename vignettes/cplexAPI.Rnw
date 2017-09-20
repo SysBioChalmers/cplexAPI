@@ -133,7 +133,7 @@ cn <- c("x1", "x2", "x3")
 rn <- c("q1", "q2", "q3")
 @
 The constraint matrix is passed in column major order format. \textbf{Be
-careful here:} all indices start with 0! Begin indices of rows.
+careful here:} all indices start with 0! Begin indices of rows in a column.
 <<>>=
 beg <- c(0, 3, 6)
 @
@@ -241,10 +241,10 @@ lb <- c(0.0, 0.0, 0.0, 2.0)
 @
 Variable upper bounds.
 <<>>=
-ub <- c(40.0, CPX_INFBOUND, CPX_INFBOUND, 3.0)
+ub <- c(40.0, CPX_INFBOUND, CPX_INFBOUND, 4.0)
 @
 The constraint matrix is passed in column major order format. \textbf{Be
-careful here:} all indices start with 0! Begin indices of rows.
+careful here:} all indices start with 0! Begin indices of rows in a column.
 <<>>=
 beg <- c(0, 2, 5, 7)
 @
