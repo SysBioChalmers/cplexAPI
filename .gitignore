@@ -1,0 +1,2 @@
+# ignore Mac OS X Finder databases:
+.DS_Store

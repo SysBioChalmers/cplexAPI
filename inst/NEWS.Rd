@@ -5,6 +5,12 @@
 \encoding{UTF-8}
 % ---------------------------------------------------------------------------- %
 
+\section{Changes in version 1.3.5 2018-09-03}{
+  \itemize{
+    \item maintainer change
+  }
+}
+
 \section{Changes in version 1.3.4 2017-07-26}{
   \itemize{
     \item The function \code{solution} should avoid returning the dual solution if solved \code{FIXEDMILP}, \code{MILP}, \code{QCP}, \code{MIQCP}, \code{MIQP}, and \code{FIXEDMIQP}.

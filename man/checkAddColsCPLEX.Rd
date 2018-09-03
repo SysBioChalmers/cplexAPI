@@ -72,13 +72,13 @@
 
 \references{
   The IBM ILOG CPLEX home page at
-  \url{https://www.ibm.com/developerworks/university/academicinitiative/}.
+  \url{https://www.ibm.com/support/knowledgecenter/SSSA5P}.
 }
 
 \author{
   Gabriel Gelius-Dietrich <geliudie@uni-duesseldorf.de>
 
-  Maintainer: Claus Jonathan Fritzemeier <clausjonathan.fritzemeier@uni-duesseldorf.de>
+  Maintainer: Mayo Roettger <mayo.roettger@hhu.de>
 }
 
 
