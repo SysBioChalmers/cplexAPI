@@ -6,7 +6,9 @@
 
 #CPXaddchannel                <- cplexAPI::addChannelCPLEX
 CPXaddcols                   <- cplexAPI::addColsCPLEX
+# removed in CPLEX 12.9.0 begin
 CPXaddfpdest                 <- cplexAPI::addFpDestCPLEX
+# removed in CPLEX 12.9.0 end
 CPXaddindconstr              <- cplexAPI::addIndConstrCPLEX
 CPXaddmipstarts              <- cplexAPI::addMIPstartsCPLEX
 CPXaddrows                   <- cplexAPI::addRowsCPLEX
@@ -43,7 +45,9 @@ CPXchgsense                  <- cplexAPI::chgSenseCPLEX
 CPXcleanup                   <- cplexAPI::cleanupCoefCPLEX
 CPXcloneprob                 <- cplexAPI::cloneProbCPLEX
 CPXcloseCPLEX                <- cplexAPI::closeEnvCPLEX
+# removed in CPLEX 12.9.0 begin
 CPXfclose                    <- cplexAPI::closeFileCPLEX
+# removed in CPLEX 12.9.0 end
 CPXcompletelp                <- cplexAPI::completelpCPLEX
 CPXcopybase                  <- cplexAPI::copyBaseCPLEX
 CPXcopyctype                 <- cplexAPI::copyColTypeCPLEX
@@ -57,7 +61,9 @@ CPXcopyquad                  <- cplexAPI::copyQuadCPLEX
 CPXcopystart                 <- cplexAPI::copyStartCPLEX
 #CPXdelchannel                <- cplexAPI::delChannelCPLEX
 CPXdelcols                   <- cplexAPI::delColsCPLEX
+# removed in CPLEX 12.9.0 begin
 CPXdelfpdest                 <- cplexAPI::delFpDestCPLEX
+# removed in CPLEX 12.9.0 end
 CPXdelindconstrs             <- cplexAPI::delIndConstrsCPLEX
 CPXdelmipstarts              <- cplexAPI::delMIPstartsCPLEX
 CPXdelnames                  <- cplexAPI::delNamesCPLEX
@@ -71,7 +77,9 @@ CPXdisconnectchannel         <- cplexAPI::disconnectChannelCPLEX
 CPXdualwrite                 <- cplexAPI::dualWriteCPLEX
 CPXdualopt                   <- cplexAPI::dualoptCPLEX
 CPXfeasopt                   <- cplexAPI::feasOptCPLEX
+# removed in CPLEX 12.9.0 begin
 CPXfputs                     <- cplexAPI::fileputCPLEX
+# removed in CPLEX 12.9.0 end
 CPXflushchannel              <- cplexAPI::flushChannelCPLEX
 CPXflushstdchannels          <- cplexAPI::flushStdChannelsCPLEX
 CPXfreepresolve              <- cplexAPI::freePresolveCPLEX
@@ -103,7 +111,9 @@ CPXinfostrparam              <- cplexAPI::getInfoStrParmCPLEX
 CPXgetintparam               <- cplexAPI::getIntParmCPLEX
 CPXgetintquality             <- cplexAPI::getIntQualCPLEX
 CPXgetitcnt                  <- cplexAPI::getItCntCPLEX
+# removed in CPLEX 12.9.0 begin
 CPXgetlogfile                <- cplexAPI::getLogFileCPLEX
+# removed in CPLEX 12.9.0 end
 CPXgetlongparam              <- cplexAPI::getLongParmCPLEX
 CPXgetlb                     <- cplexAPI::getLowerBndsCPLEX
 CPXgetmiprelgap              <- cplexAPI::getMIPrelGapCPLEX
@@ -163,7 +173,9 @@ CPXnewcols                   <- cplexAPI::newColsCPLEX
 CPXnewrows                   <- cplexAPI::newRowsCPLEX
 CPXobjsa                     <- cplexAPI::objSaCPLEX
 CPXopenCPLEX                 <- cplexAPI::openEnvCPLEX
+# removed in CPLEX 12.9.0 begin
 CPXfopen                     <- cplexAPI::openFileCPLEX
+# removed in CPLEX 12.9.0 end
 CPXordwrite                  <- cplexAPI::ordWriteCPLEX
 CPXpreslvwrite               <- cplexAPI::preslvWriteCPLEX
 CPXpresolve                  <- cplexAPI::presolveCPLEX
@@ -183,7 +195,9 @@ CPXrhssa                     <- cplexAPI::rhsSaCPLEX
 CPXsetdblparam               <- cplexAPI::setDblParmCPLEX
 CPXsetdefaults               <- cplexAPI::setDefaultParmCPLEX
 CPXsetintparam               <- cplexAPI::setIntParmCPLEX
+# removed in CPLEX 12.9.0 begin
 CPXsetlogfile                <- cplexAPI::setLogFileCPLEX
+# removed in CPLEX 12.9.0 end
 CPXsetlongparam              <- cplexAPI::setLongParmCPLEX
 CPXchgobjsen                 <- cplexAPI::setObjDirCPLEX
 CPXsetstrparam               <- cplexAPI::setStrParmCPLEX
@@ -197,3 +211,12 @@ CPXunscaleprob               <- cplexAPI::unscaleProbCPLEX
 CPXwritemipstarts            <- cplexAPI::writeMIPstartsCPLEX
 CPXwriteparam                <- cplexAPI::writeParmCPLEX
 CPXwriteprob                 <- cplexAPI::writeProbCPLEX
+
+# new in CPLEX 12.8.0 begin
+CPXsetlogfilename            <- cplexAPI::setLogFileNameCPLEX
+CPXgetlogfilename            <- cplexAPI::getLogFileNameCPLEX
+# new in CPLEX 12.8.0 end
+
+# new in CPLEX 12.9.0 begin
+CPXgetparamhiername          <- cplexAPI::getParmHierNameCPLEX
+# new in CPLEX 12.9.0 end

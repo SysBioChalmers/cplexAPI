@@ -301,6 +301,7 @@ CPX_PARAM_SOLUTIONTARGET      <- 1131L
 CPX_PARAM_CLONELOG            <- 1132L
 CPX_PARAM_TUNINGDETTILIM      <- 1139L
 
+
 # Barrier is in bardefs.h, MIP is in mipdefs.h, QP is in qpdefs.h
 CPX_PARAM_ALL_MIN             <- 1000L
 CPX_PARAM_ALL_MAX             <- 6000L
@@ -376,6 +377,12 @@ CPX_KAPPA_UNSTABLE             <- 54L
 CPX_KAPPA_ILLPOSED             <- 55L
 CPX_KAPPA_MAX                  <- 56L
 CPX_KAPPA_ATTENTION            <- 57L
+
+
+#------------------------------------------------------------------------------#
+# Solution quality symbols new in CPLEX 12.9.0
+CPX_MAX_PWLSLACK_INFEAS  <- 58L
+CPX_SUM_PWLSLACK_INFEAS  <- 59L
 
 
 #------------------------------------------------------------------------------#
@@ -575,7 +582,9 @@ CPX_PARAM_MIPEMPHASIS         <- 2058L
 CPX_PARAM_SYMMETRY            <- 2059L
 CPX_PARAM_DIVETYPE            <- 2060L
 CPX_PARAM_RINSHEUR            <- 2061L
+# removed in CPLEX 12.9.0 begin
 CPX_PARAM_SUBMIPNODELIM       <- 2062L
+# removed in CPLEX 12.9.0 end
 CPX_PARAM_LBHEUR              <- 2063L
 CPX_PARAM_REPEATPRESOLVE      <- 2064L
 CPX_PARAM_PROBETIME           <- 2065L
@@ -633,6 +642,7 @@ CPX_CON_MINEXPR              <-  7L
 CPX_CON_MAXEXPR              <-  8L
 CPX_CON_PWL                  <-  9L
 CPX_CON_ABS                  <-  9L  # same as PWL since using it
+# removed in CPLEX 12.9.0 begin
 CPX_CON_DISJCST              <- 10L
 CPX_CON_INDDISJCST           <- 11L
 CPX_CON_SETVAR               <- 12L
@@ -650,6 +660,7 @@ CPX_CON_SETVARINTERSECT      <- 23L
 CPX_CON_SETVAREQ             <- 24L
 CPX_CON_SETVARNEQ            <- 25L
 CPX_CON_SETVARNEQCST         <- 26L
+# removed in CPLEX 12.9.0 end
 CPX_CON_LAST_CONTYPE         <- 27L
 
 
@@ -692,6 +703,25 @@ CPX_PARAM_QPMAKEPSDIND        <- 4010L
 # Callable library miscellaneous routines
 CPXERR_NEGATIVE_SURPLUS       <- 1207L
 CPXERR_NO_SENSIT              <- 1260L
+
+
+#------------------------------------------------------------------------------#
+# Error codes new in CPLEX 12.8.0
+
+# Callable library miscellaneous routines
+CPXERR_CALLBACK_INCONSISTENT  <- 1060L
+CPXERR_CAND_NOT_RAY           <- 3026L
+CPXERR_CAND_NOT_POINT         <- 3025L
+
+
+#------------------------------------------------------------------------------#
+# Error codes new in CPLEX 12.9.0
+
+# Callable library miscellaneous routines
+CPXERR_BAD_MULTIOBJ_ATTR      <- 1488L
+CPXERR_MULTIOBJ_SUBPROB_SOLVE <- 1300L
+CPXERR_NO_OBJ_NAME            <- 1486L
+CPXERR_NOT_FOR_MULTIOBJ       <- 1070L
 
 
 #------------------------------------------------------------------------------#
@@ -859,3 +889,37 @@ CPXPARAM_Tune_Repeat                     <- 1111L
 CPXPARAM_Tune_TimeLimit                  <- 1112L
 CPXPARAM_WorkDir                         <- 1064L
 CPXPARAM_WorkMem                         <- 1065L
+
+
+#------------------------------------------------------------------------------#
+# new parameter names introduced in IBM ILOG CPLEX version 12.8.0
+CPXPARAM_Record                               <- 1162L
+CPXPARAM_MIP_Strategy_SubMIPScale             <- 2207L
+CPXPARAM_MIP_Strategy_SubMIPStartAlg          <- 2205L
+CPXPARAM_MIP_Strategy_SubMIPSubAlg            <- 2206L
+CPXPARAM_ParamDisplay                         <- 1163L 
+CPX_PARAM_PARAMDISPLAY                        <- 1163L
+CPXMI_SAMECOEFF_ROW                           <- 1049L
+CPXMI_SAMECOEFF_COL                           <- 1050L
+CPXMI_SAMECOEFF_IND                           <- 1051L
+CPXMI_SAMECOEFF_QLIN                          <- 1052L
+CPXMI_SAMECOEFF_QUAD                          <- 1053L
+CPXMI_SAMECOEFF_LAZY                          <- 1054L
+CPXMI_SAMECOEFF_UCUT                          <- 1055L
+CPXMI_SAMECOEFF_RHS                           <- 1056L
+CPXMI_SAMECOEFF_OBJ                           <- 1057L
+# contexts to support new callbacks
+CPX_CALLBACKCONTEXT_CANDIDATE                 <- 0x0020L
+CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS           <- 0x0010L
+CPX_CALLBACKCONTEXT_LOCAL_PROGRESS            <- 0x0008L
+CPX_CALLBACKCONTEXT_RELAXATION                <- 0x0040L
+CPX_CALLBACKCONTEXT_THREAD_DOWN               <- 0x0004L
+CPX_CALLBACKCONTEXT_THREAD_UP                 <- 0x0002L
+
+
+#------------------------------------------------------------------------------#
+# new parameter names introduced in IBM ILOG CPLEX version 12.9.0
+
+CPXPARAM_MultiObjective_Display          <- 1600L
+CPXPARAM_Preprocessing_Folding           <- 1164L
+CPXPARAM_Read_WarningLimit               <- 1157L

@@ -9,7 +9,9 @@
 \description{
   Low level interface function to the IBM ILOG CPLEX function
   \code{CPXgetlogfile}.  Consult the IBM ILOG CPLEX documentation for
-  more detailed information.
+  more detailed information. This funtion has no functionality
+  from IBM ILOG CPLEX >= 12.9.0 on, where \code{CPXgetlogfile} has
+  been removed.
 }
 
 \usage{

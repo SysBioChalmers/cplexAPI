@@ -8,8 +8,10 @@
 
 \description{
   Low level interface function to the IBM ILOG CPLEX function
-  \code{CPXdelfpdest}.  Consult the IBM ILOG CPLEX documentation for
-  more detailed information.
+  \code{CPXdelfpdest}. Consult the IBM ILOG CPLEX documentation for
+  more detailed information. This funtion has no functionality
+  from IBM ILOG CPLEX >= 12.9.0 on, where \code{CPXdelfpdest} has
+  been removed.
 }
 
 \usage{

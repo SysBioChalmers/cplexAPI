@@ -34,8 +34,10 @@
 \alias{CPX_BRDIR_DOWN}
 \alias{CPX_BRDIR_UP}
 \alias{CPX_CON_ABS}
+% removed in CPLEX 12.9.0 begin
 \alias{CPX_CON_DISJCST}
 \alias{CPX_CON_INDDISJCST}
+% removed in CPLEX 12.9.0 end
 \alias{CPX_CON_INDICATOR}
 \alias{CPX_CON_LAST_CONTYPE}
 \alias{CPX_CON_LINEAR}
@@ -44,6 +46,7 @@
 \alias{CPX_CON_MINEXPR}
 \alias{CPX_CON_PWL}
 \alias{CPX_CON_QUADRATIC}
+% removed in CPLEX 12.9.0 begin
 \alias{CPX_CON_SETVAR}
 \alias{CPX_CON_SETVARCARD}
 \alias{CPX_CON_SETVARDOMAIN}
@@ -59,6 +62,7 @@
 \alias{CPX_CON_SETVARSUBSET}
 \alias{CPX_CON_SETVARSUM}
 \alias{CPX_CON_SETVARUNION}
+% removed in CPLEX 12.9.0 end
 \alias{CPX_CON_SOS}
 \alias{CPX_CON_UPPER_BOUND}
 \alias{CPX_CONFLICT_EXCLUDED}
@@ -307,7 +311,9 @@
 \alias{CPX_PARAM_STRONGCANDLIM}
 \alias{CPX_PARAM_STRONGITLIM}
 \alias{CPX_PARAM_SUBALG}
+% removed in CPLEX 12.9.0 begin
 \alias{CPX_PARAM_SUBMIPNODELIM}
+% removed in CPLEX 12.9.0 end
 \alias{CPX_PARAM_SYMMETRY}
 \alias{CPX_PARAM_THREADS}
 \alias{CPX_PARAM_TILIM}
@@ -657,6 +663,46 @@
 \alias{CPXPARAM_Tune_TimeLimit}
 \alias{CPXPARAM_WorkDir}
 \alias{CPXPARAM_WorkMem}
+
+% new in CPLEX 12.8.0 begin
+\alias{CPXPARAM_Record}
+\alias{CPXPARAM_MIP_Strategy_SubMIPScale}
+\alias{CPXPARAM_MIP_Strategy_SubMIPStartAlg}
+\alias{CPXPARAM_MIP_Strategy_SubMIPSubAlg}
+\alias{CPXPARAM_ParamDisplay}
+\alias{CPX_PARAM_PARAMDISPLAY}
+\alias{CPXMI_SAMECOEFF_ROW}
+\alias{CPXMI_SAMECOEFF_COL}
+\alias{CPXMI_SAMECOEFF_IND}
+\alias{CPXMI_SAMECOEFF_QLIN}
+\alias{CPXMI_SAMECOEFF_QUAD}
+\alias{CPXMI_SAMECOEFF_LAZY}
+\alias{CPXMI_SAMECOEFF_UCUT}
+\alias{CPXMI_SAMECOEFF_RHS}
+\alias{CPXMI_SAMECOEFF_OBJ}
+\alias{CPXERR_CALLBACK_INCONSISTENT}
+\alias{CPXERR_CAND_NOT_RAY}
+\alias{CPXERR_CAND_NOT_POINT}
+\alias{CPX_CALLBACKCONTEXT_CANDIDATE}
+\alias{CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS}
+\alias{CPX_CALLBACKCONTEXT_LOCAL_PROGRESS}
+\alias{CPX_CALLBACKCONTEXT_RELAXATION}
+\alias{CPX_CALLBACKCONTEXT_THREAD_DOWN}
+\alias{CPX_CALLBACKCONTEXT_THREAD_UP}
+% new in CPLEX 12.8.0 end
+
+% new in CPLEX 12.9.0 begin
+\alias{CPX_MAX_PWLSLACK_INFEAS}
+\alias{CPX_SUM_PWLSLACK_INFEAS}
+\alias{CPXPARAM_MultiObjective_Display}
+\alias{CPXPARAM_Preprocessing_Folding}
+\alias{CPXPARAM_Read_WarningLimit}
+\alias{CPXERR_BAD_MULTIOBJ_ATTR}
+\alias{CPXERR_MULTIOBJ_SUBPROB_SOLVE}
+\alias{CPXERR_NOT_FOR_MULTIOBJ}
+\alias{CPXERR_NO_OBJ_NAME}
+% new in CPLEX 12.9.0 end
+
 
 \title{
   Constants, Parameters, Return and Status Codes of IBM ILOG CPLEX
@@ -1078,6 +1124,15 @@ Types \code{4}, \code{9}, and \code{12} are internal, the others are for users.
 
 
 %------------------------------------------------------------------------------
+\section{Solution quality symbols new in CPLEX 12.9.0}{
+  \tabular{ll}{
+    \code{CPX_MAX_PWLSLACK_INFEAS}        \tab \code{58} \cr
+    \code{CPX_SUM_PWLSLACK_INFEAS}        \tab \code{59} \cr
+  }
+}
+
+
+%------------------------------------------------------------------------------
 \section{feasopt options}{
   \tabular{ll}{
     \code{CPX_FEASOPT_MIN_SUM}  \tab \code{0} \cr
@@ -1325,7 +1380,9 @@ Types \code{4}, \code{9}, and \code{12} are internal, the others are for users.
     \code{CPX_PARAM_SYMMETRY}            \tab \code{2059} \cr
     \code{CPX_PARAM_DIVETYPE}            \tab \code{2060} \cr
     \code{CPX_PARAM_RINSHEUR}            \tab \code{2061} \cr
+    % removed in CPLEX 12.9.0 begin
     \code{CPX_PARAM_SUBMIPNODELIM}       \tab \code{2062} \cr
+    % removed in CPLEX 12.9.0 end
     \code{CPX_PARAM_LBHEUR}              \tab \code{2063} \cr
     \code{CPX_PARAM_REPEATPRESOLVE}      \tab \code{2064} \cr
     \code{CPX_PARAM_PROBETIME}           \tab \code{2065} \cr
@@ -1392,6 +1449,7 @@ Types \code{4}, \code{9}, and \code{12} are internal, the others are for users.
     \code{CPX_CON_MAXEXPR}              \tab \code{8} \cr
     \code{CPX_CON_PWL}                  \tab \code{9} \cr
     \code{CPX_CON_ABS}                  \tab \code{9} \cr
+    % removed in CPLEX 12.9.0 begin
     \code{CPX_CON_DISJCST}              \tab \code{10} \cr
     \code{CPX_CON_INDDISJCST}           \tab \code{11} \cr
     \code{CPX_CON_SETVAR}               \tab \code{12} \cr
@@ -1409,6 +1467,7 @@ Types \code{4}, \code{9}, and \code{12} are internal, the others are for users.
     \code{CPX_CON_SETVAREQ}             \tab \code{24} \cr
     \code{CPX_CON_SETVARNEQ}            \tab \code{25} \cr
     \code{CPX_CON_SETVARNEQCST}         \tab \code{26} \cr
+    % removed in CPLEX 12.9.0 end
     \code{CPX_CON_LAST_CONTYPE}         \tab \code{27} \cr
   }
 }
@@ -1468,6 +1527,29 @@ Callable library miscellaneous routines
   \tabular{ll}{
     \code{CPXERR_NEGATIVE_SURPLUS}       \tab \code{1207} \cr
     \code{CPXERR_NO_SENSIT}              \tab \code{1260} \cr
+  }
+}
+
+
+%------------------------------------------------------------------------------
+\section{Error codes new in CPLEX 12.8.0}{
+Callable library miscellaneous routines
+  \tabular{ll}{
+    \code{CPXERR_CALLBACK_INCONSISTENT}      \tab \code{1060} \cr
+    \code{CPXERR_CAND_NOT_RAY}               \tab \code{3026} \cr
+    \code{CPXERR_CAND_NOT_POINT}             \tab \code{3025} \cr
+  }
+}
+
+
+%------------------------------------------------------------------------------
+\section{Error codes new in CPLEX 12.9.0}{
+Callable library miscellaneous routines
+  \tabular{ll}{
+    \code{CPXERR_BAD_MULTIOBJ_ATTR}      \tab \code{1488} \cr
+    \code{CPXERR_MULTIOBJ_SUBPROB_SOLVE} \tab \code{1300} \cr
+    \code{CPXERR_NO_OBJ_NAME}            \tab \code{1486} \cr
+    \code{CPXERR_NOT_FOR_MULTIOBJ}       \tab \code{1070} \cr
   }
 }
 
@@ -1641,7 +1723,45 @@ Callable library miscellaneous routines
   }
 }
 
+%------------------------------------------------------------------------------
+\section{new parameter names introduced in IBM ILOG CPLEX version 12.8.0}{
+Callable library miscellaneous routines
+  \tabular{ll}{
+    \code{CPXPARAM_Record}                          \tab \code{1162} \cr
+    \code{CPXPARAM_MIP_Strategy_SubMIPScale}        \tab \code{2207} \cr
+    \code{CPXPARAM_MIP_Strategy_SubMIPStartAlg}     \tab \code{2205} \cr
+    \code{CPXPARAM_MIP_Strategy_SubMIPSubAlg}       \tab \code{2206} \cr
+    \code{CPXPARAM_ParamDisplay}                    \tab \code{1163} \cr
+    \code{CPX_PARAM_PARAMDISPLAY}                   \tab \code{1163} \cr
+    \code{CPXMI_SAMECOEFF_ROW}                      \tab \code{1049} \cr
+    \code{CPXMI_SAMECOEFF_COL}                      \tab \code{1050} \cr
+    \code{CPXMI_SAMECOEFF_IND}                      \tab \code{1051} \cr
+    \code{CPXMI_SAMECOEFF_QLIN}                     \tab \code{1052} \cr
+    \code{CPXMI_SAMECOEFF_QUAD}                     \tab \code{1053} \cr
+    \code{CPXMI_SAMECOEFF_LAZY}                     \tab \code{1054} \cr
+    \code{CPXMI_SAMECOEFF_UCUT}                     \tab \code{1055} \cr
+    \code{CPXMI_SAMECOEFF_RHS}                      \tab \code{1056} \cr
+    \code{CPXMI_SAMECOEFF_OBJ}                      \tab \code{1057} \cr
+    
+    \code{CPX_CALLBACKCONTEXT_CANDIDATE}            \tab \code{0x0020} \cr
+    \code{CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS}      \tab \code{0x0010} \cr
+    \code{CPX_CALLBACKCONTEXT_LOCAL_PROGRESS}       \tab \code{0x0008} \cr
+    \code{CPX_CALLBACKCONTEXT_RELAXATION}           \tab \code{0x0040} \cr
+    \code{CPX_CALLBACKCONTEXT_THREAD_DOWN}          \tab \code{0x0004} \cr
+    \code{CPX_CALLBACKCONTEXT_THREAD_UP}            \tab \code{0x0002} \cr
+  }
+}
 
+%------------------------------------------------------------------------------
+\section{new parameter names introduced in IBM ILOG CPLEX version 12.9.0}{
+Callable library miscellaneous routines
+  \tabular{ll}{
+    \code{CPXPARAM_Read_WarningLimit}                         \tab \code{1157} \cr
+    \code{CPXPARAM_MultiObjective_Display}                    \tab \code{1600} \cr
+    \code{CPXPARAM_Preprocessing_Folding}                     \tab \code{1164} \cr
+  }
+}
+    
 \references{
   The IBM ILOG CPLEX home page at
   \url{https://www.ibm.com/support/knowledgecenter/SSSA5P}.

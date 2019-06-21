@@ -4967,6 +4967,12 @@ SEXP rhsSa(SEXP env, SEXP lp, SEXP begin, SEXP end) {
 }
 
 
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12090000)
+SEXP cplexfopen(SEXP fname, SEXP ftype, SEXP ptrtype) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#else
 /* -------------------------------------------------------------------------- */
 /* open a file */
 SEXP cplexfopen(SEXP fname, SEXP ftype, SEXP ptrtype) {
@@ -5002,8 +5008,15 @@ SEXP cplexfopen(SEXP fname, SEXP ftype, SEXP ptrtype) {
 
     return ptr;
 }
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12090000) */
 
 
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12090000)
+SEXP cplexfclose(SEXP cpfile) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#else
 /* -------------------------------------------------------------------------- */
 /* close a file */
 SEXP cplexfclose(SEXP cpfile) {
@@ -5025,7 +5038,15 @@ SEXP cplexfclose(SEXP cpfile) {
 
     return out;
 }
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12090000) */
 
+
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12090000)
+SEXP fileput(SEXP cpfile, SEXP stuff) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#else
 /* -------------------------------------------------------------------------- */
 /* write to file */
 SEXP fileput(SEXP cpfile, SEXP stuff) {
@@ -5042,8 +5063,15 @@ SEXP fileput(SEXP cpfile, SEXP stuff) {
 
     return out;
 }
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12090000) */
 
 
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12090000)
+SEXP setLogFile(SEXP env, SEXP cpfile) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#else
 /* -------------------------------------------------------------------------- */
 /* modify log file */
 SEXP setLogFile(SEXP env, SEXP cpfile) {
@@ -5071,8 +5099,15 @@ SEXP setLogFile(SEXP env, SEXP cpfile) {
 
     return out;
 }
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12090000) */
 
 
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12090000)
+SEXP getLogFile(SEXP env, SEXP ptrtype) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#else
 /* -------------------------------------------------------------------------- */
 /* access log file */
 SEXP getLogFile(SEXP env, SEXP ptrtype) {
@@ -5107,6 +5142,7 @@ SEXP getLogFile(SEXP env, SEXP ptrtype) {
 
     return ptr;
 }
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12090000) */
 
 
 /* -------------------------------------------------------------------------- */
@@ -5198,9 +5234,9 @@ SEXP flushStdChannels(SEXP env) {
 
     newch = CPXaddchannel(R_ExternalPtrAddr(env));
 
-    if (newch != NULL) {
-        /* create channel pointer *//*
-        PROTECT(ptr = Rf_allocVector(STRSXP, 1));
+    if (newch != NULL) {*/
+        /* create channel pointer */
+        /*PROTECT(ptr = Rf_allocVector(STRSXP, 1));
         SET_STRING_ELT(ptr, 0, STRING_ELT(ptrtype, 0));
         
         PROTECT(class = Rf_allocVector(STRSXP, 1));
@@ -5270,6 +5306,12 @@ SEXP flushChannel(SEXP env, SEXP newch) {
 }
 
 
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12090000)
+SEXP addFpDest(SEXP env, SEXP newch, SEXP cpfile) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#else
 /* -------------------------------------------------------------------------- */
 /* add a file to the list of message destinations for a channel */
 SEXP addFpDest(SEXP env, SEXP newch, SEXP cpfile) {
@@ -5291,8 +5333,15 @@ SEXP addFpDest(SEXP env, SEXP newch, SEXP cpfile) {
 
     return out;
 }
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12090000) */
 
 
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12090000)
+SEXP delFpDest(SEXP env, SEXP newch, SEXP cpfile) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#else
 /* -------------------------------------------------------------------------- */
 /* remove a file to the list of message destinations for a channel */
 SEXP delFpDest(SEXP env, SEXP newch, SEXP cpfile) {
@@ -5314,6 +5363,7 @@ SEXP delFpDest(SEXP env, SEXP newch, SEXP cpfile) {
 
     return out;
 }
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12090000) */
 
 
 /* -------------------------------------------------------------------------- */
@@ -6524,3 +6574,125 @@ SEXP getIndConstr(SEXP env, SEXP lp, SEXP which) {
 
     return out;
 }
+
+
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12080000)
+/* -------------------------------------------------------------------------- */
+/* sets and opens a logfile */
+SEXP setLogFileName(SEXP env, SEXP filename, SEXP mode) {
+
+    SEXP out = R_NilValue;
+    const char *rfilename;
+    const char *rmode;
+    
+    if (filename == R_NilValue) {
+        rfilename = NULL;
+    }
+    else {
+        rfilename = CHAR(STRING_ELT(filename, 0));
+    }
+    
+    if (mode == R_NilValue) {
+        rmode = NULL;
+    }
+    else {
+        rmode = CHAR(STRING_ELT(mode, 0));
+    }
+    
+    checkEnv(env);
+
+    status = CPXsetlogfilename(R_ExternalPtrAddr(env), rfilename, rmode);
+    if (status != 0) {
+        status_message(R_ExternalPtrAddr(env), status);
+    }
+
+    out = Rf_ScalarInteger(status);
+
+    return out;
+}
+#else
+SEXP setLogFileName(SEXP env, SEXP filename, SEXP mode) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12080000) */
+
+
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12080000)
+/* -------------------------------------------------------------------------- */
+/* get the name of the current logfile */
+SEXP getLogFileName(SEXP env) {
+
+    SEXP out = R_NilValue;
+
+    int ret, sp;
+    int osp = 0;
+    char *namesp = NULL;
+
+    checkEnv(env);
+
+    ret = CPXgetlogfilename(R_ExternalPtrAddr(env),
+                        NULL, 0, &sp
+                       );
+
+    if (ret == CPXERR_NEGATIVE_SURPLUS) {
+        osp -= sp;
+        namesp = R_Calloc(osp, char);
+
+        status = CPXgetlogfilename(R_ExternalPtrAddr(env),
+                               namesp, osp, &sp
+                              );
+
+        if (status != 0) {
+            status_message(R_ExternalPtrAddr(env), status);
+            out = cpx_error(status);
+        }
+        else {
+            out = Rf_mkString(namesp);
+        }
+        R_Free(namesp);
+    }
+    else {
+        if (ret != 0) {
+            status_message(R_ExternalPtrAddr(env), ret);
+            out = cpx_error(ret);
+        }
+    }
+
+    return out;
+}
+#else
+SEXP getLogFileName(SEXP env) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12080000) */
+
+
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12090000)
+/* -------------------------------------------------------------------------- */
+/* get CPLEX parameter hierarchy name */
+SEXP getParmHierName(SEXP env, SEXP whichparam) {
+
+    SEXP out = R_NilValue;
+
+    char strp[CPX_STR_PARAM_MAX];
+
+    checkEnv(env);
+
+    status = CPXgetparamhiername(R_ExternalPtrAddr(env), Rf_asInteger(whichparam), strp);
+    if (status != 0) {
+        status_message(R_ExternalPtrAddr(env), status);
+    }
+
+    out = Rf_mkString(strp);
+
+    return out;
+}
+#else
+SEXP getParamHierName(SEXP env, SEXP whichparam) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12090000) */
+

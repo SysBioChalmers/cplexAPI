@@ -8,8 +8,10 @@
 
 \description{
   Low level interface function to the IBM ILOG CPLEX function
-  \code{CPXfclose}.  Consult the IBM ILOG CPLEX documentation for
-  more detailed information.
+  \code{CPXfclose}. Consult the IBM ILOG CPLEX documentation for
+  more detailed information. This funtion has no functionality
+  from IBM ILOG CPLEX >= 12.9.0 on, where \code{CPXfclose} has
+  been removed.
 }
 
 \usage{
@@ -23,7 +25,7 @@
 }
 
 \details{
-  Interface to the C function \code{closeFile} which calls the CPLEX
+  Interface to the C function \code{cplexfclose} which calls the CPLEX
   function \code{CPXfclose}.
 }
 

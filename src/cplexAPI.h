@@ -703,3 +703,16 @@ SEXP delIndConstrs(SEXP env, SEXP lp, SEXP begin, SEXP end);
 
 /* access an indicator constraint on the variables of a problem object */
 SEXP getIndConstr(SEXP env, SEXP lp, SEXP which);
+
+/* new in CPLEX 12.8.0 begin */
+/* sets and opens a log file */
+SEXP setLogFileName(SEXP env, SEXP filename, SEXP mode);
+
+/* get the name of the current logfile */
+SEXP getLogFileName(SEXP env);
+/* new in CPLEX 12.8.0 end */
+
+/* new in CPLEX 12.9.0 begin */
+/* get CPLEX parameter hierarchy name */
+SEXP getParmHierName(SEXP env, SEXP whichparam);
+/* new in CPLEX 12.9.0 end */

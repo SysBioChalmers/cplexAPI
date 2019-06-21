@@ -1,4 +1,4 @@
-AC_INIT([cplexAPI], [1.2.11], [geliudie@uni-duesseldorf.de])
+AC_INIT([cplexAPI], [1.3.6], [mayo.roettger@hhu.de])
 
 ## adopted from configure.ac in Rcplex_0.3-0
 

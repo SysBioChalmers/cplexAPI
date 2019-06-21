@@ -1,21 +1,20 @@
-\name{setLogFileCPLEX}
-\alias{setLogFileCPLEX}
-\alias{CPXsetlogfile}
+\name{getLogFileNameCPLEX}
+\alias{getLogFileNameCPLEX}
+\alias{CPXgetlogfilename}
 
 \title{
-  Modifies the log file to which Messages are Written
+  Get the name of the current logfile
 }
 
 \description{
   Low level interface function to the IBM ILOG CPLEX function
-  \code{CPXsetlogfile}. Consult the IBM ILOG CPLEX documentation for
+  \code{CPXgetlogfilename}. Consult the IBM ILOG CPLEX documentation for
   more detailed information. This funtion has no functionality
-  from IBM ILOG CPLEX >= 12.9.0 on, where \code{CPXsetlogfile} has
-  been removed.
+  for IBM ILOG CPLEX < 12.8.0, where \code{CPXgetlogfilename} was not included.
 }
 
 \usage{
-  setLogFileCPLEX(env, cpfile = NULL)
+  getLogFileNameCPLEX(env)
 }
 
 \arguments{
@@ -24,14 +23,11 @@
     \code{\link{openEnvCPLEX}}. This is basically a pointer to an
     IBM ILOG CPLEX environment.
   }
-  \item{cpfile}{
-    A pointer to a file as returned by \code{\link{openFileCPLEX}}.
-  }
 }
 
 \details{
-  Interface to the C function \code{getLogFile} which calls the CPLEX
-  function \code{CPXgetlogfile}.
+  Interface to the C function \code{getLogFileName} which calls the CPLEX
+  function \code{CPXgetlogfilename}.
 }
 
 \value{
@@ -44,14 +40,14 @@
 }
 
 \author{
-  Gabriel Gelius-Dietrich <geliudie@uni-duesseldorf.de>
+  Mayo Roettger <mayo.roettger@hhu.de>
 
   Maintainer: Mayo Roettger <mayo.roettger@hhu.de>
 }
 
 
 \seealso{
-  \code{\link{getLogFileCPLEX}}
+  \code{\link{cplexConstants}}
 }
 
 \keyword{ optimize }

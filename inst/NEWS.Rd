@@ -4,25 +4,44 @@
 \title{cplexAPI News}
 \encoding{UTF-8}
 % ---------------------------------------------------------------------------- %
+\section{Changes in version 1.3.6 2019-06-21}{
+  \itemize{
+    \item Added functions \code{setLogFileNameCPLEX} and \code{getLogFileName} for interfacing CPLEX functions \code{CPXsetlogfilename} and 
+    \code{CPXgetlogfilename} if building package with CPLEX Version >= 12.8.0.
+    \item Added funtion \code{getParmHierNameCPLEX} for interfacing CPLEX funtion \code{CPXgetparamhiername} if building with CPLEX Version 12.9.0.
+    \item Interface Functions \code{openFileCPLEX}, \code{closeFileCPLEX}, \code{addFpDestCPLEX}, \code{delFpDestCPLEX}, \code{fileputCPLEX},
+    \code{setLogFileCPLEX}, and \code{getLogFileCPLEX} will have no functionality and return NULL, if building with CPLEX version >= 12.9.0,
+    because related CPLEX functions \code{CPXfopen}, \code{CPXfclose}, \code{CPXaddfpdest}, \code{CPXdelfpdest}, \code{CPXfputs}, \code{CPXsetlogfile}, 
+    and \code{CPXgetlogfile} had been removed in CPLEX Version >= 12.9.0. For using logfiles, use \code{setLogFileNameCPLEX} and \code{getLogFileName}
+    instead.
+  }
+}
 
+
+% ---------------------------------------------------------------------------- %
 \section{Changes in version 1.3.5 2018-09-03}{
   \itemize{
     \item maintainer change
   }
 }
 
+
+% ---------------------------------------------------------------------------- %
 \section{Changes in version 1.3.4 2017-07-26}{
   \itemize{
     \item The function \code{solution} should avoid returning the dual solution if solved \code{FIXEDMILP}, \code{MILP}, \code{QCP}, \code{MIQCP}, \code{MIQP}, and \code{FIXEDMIQP}.
   }
 }
 
+
+% ---------------------------------------------------------------------------- %
 \section{Changes in version 1.3.3 2017-01-18}{
   \itemize{
     \item In CPLEX Version 1270 are the functions \code{CPXaddchannel} and
     	\code{CPXdelchannel} removed (\url{http://www.ibm.com/support/knowledgecenter/SSSA5P_12.7.0/ilog.odms.cplex.help/CPLEX/ReleaseNotes/topics/releasenotes127/removed.html}).
   }
 }
+
 
 % ---------------------------------------------------------------------------- %
 \section{Changes in version 1.3.2 2016-11-16}{
@@ -32,6 +51,7 @@
     	\code{CPXgetnumqconstrs}
   }
 }
+
 
 % ---------------------------------------------------------------------------- %
 \section{Changes in version 1.2.11 2014-07-28}{

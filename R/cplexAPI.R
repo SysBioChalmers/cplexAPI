@@ -2429,6 +2429,7 @@ rhsSaCPLEX <- function(env, lp, begin, end) {
 }
 
 
+# removed in CPLEX 12.9.0 begin
 #------------------------------------------------------------------------------#
 
 openFileCPLEX <- function(fname, ftype = "w", ptrtype = "cplex_file") {
@@ -2443,8 +2444,10 @@ openFileCPLEX <- function(fname, ftype = "w", ptrtype = "cplex_file") {
     
     return(cpfileP)
 }
+# removed in CPLEX 12.9.0 end
 
 
+# removed in CPLEX 12.9.0 begin
 #------------------------------------------------------------------------------#
 
 closeFileCPLEX <- function(cpfile) {
@@ -2456,7 +2459,10 @@ closeFileCPLEX <- function(cpfile) {
     return(cplexError(status))
 }
 
+# removed in CPLEX 12.9.0 end
 
+
+# removed in CPLEX 12.9.0 begin
 #------------------------------------------------------------------------------#
 
 fileputCPLEX <- function(cpfile, stuff = "") {
@@ -2468,8 +2474,10 @@ fileputCPLEX <- function(cpfile, stuff = "") {
 
     return(status)
 }
+# removed in CPLEX 12.9.0 end
 
 
+# removed in CPLEX 12.9.0 begin
 #------------------------------------------------------------------------------#
 
 setLogFileCPLEX <- function(env, cpfile = NULL) {
@@ -2488,8 +2496,10 @@ setLogFileCPLEX <- function(env, cpfile = NULL) {
 
     return(status)
 }
+# removed in CPLEX 12.9.0 end
 
 
+# removed in CPLEX 12.9.0 begin
 #------------------------------------------------------------------------------#
 
 getLogFileCPLEX <- function(env, ptrtype = "cplex_file") {
@@ -2504,6 +2514,7 @@ getLogFileCPLEX <- function(env, ptrtype = "cplex_file") {
     return(cplexError(cpfileP))
 
 }
+# removed in CPLEX 12.9.0 end
 
 
 #------------------------------------------------------------------------------#
@@ -2593,6 +2604,7 @@ flushChannelCPLEX <- function(env, newch) {
 }
 
 
+# removed in CPLEX 12.9.0 begin
 #------------------------------------------------------------------------------#
 
 addFpDestCPLEX <- function(env, newch, cpfile) {
@@ -2605,8 +2617,10 @@ addFpDestCPLEX <- function(env, newch, cpfile) {
 
     return(status)
 }
+# removed in CPLEX 12.9.0 end
 
 
+# removed in CPLEX 12.9.0 begin
 #------------------------------------------------------------------------------#
 
 delFpDestCPLEX <- function(env, newch, cpfile) {
@@ -2619,6 +2633,7 @@ delFpDestCPLEX <- function(env, newch, cpfile) {
 
     return(status)
 }
+# removed in CPLEX 12.9.0 end
 
 
 #------------------------------------------------------------------------------#
@@ -3211,3 +3226,60 @@ getIndConstrCPLEX <- function(env, lp, which) {
 
     return(cplexError(ic))
 }
+
+
+# new in CPLEX 12.8.0 begin
+#------------------------------------------------------------------------------#
+
+setLogFileNameCPLEX <- function(env, filename = "cpx.log", mode = "w") {
+
+    if (is.null(filename)) {
+        Cfilename <- as.null(filename)
+    }
+    else {
+        Cfilename <- as.character(filename)
+    }
+    
+    if (is.null(mode)) {
+        Cmode <- as.null(mode)
+    }
+    else {
+        Cmode <- as.character(mode)
+    }
+    
+    status <- .Call("setLogFileName", PACKAGE = "cplexAPI",
+                    cplexPointer(env),
+                    Cfilename,
+                    Cmode
+              )
+
+    return(status)
+}
+
+
+#------------------------------------------------------------------------------#
+
+getLogFileNameCPLEX <- function(env) {
+
+    status <- .Call("getLogFileName", PACKAGE = "cplexAPI",
+                    cplexPointer(env)
+              )
+
+    return(status)
+}
+# new in CPLEX 12.8.0 end
+
+
+# new in CPLEX 12.9.0 begin
+#------------------------------------------------------------------------------#
+
+getParmHierNameCPLEX <- function(env, whichparam) {
+
+    value <- .Call("getParmHierName", PACKAGE = "cplexAPI",
+                   cplexPointer(env),
+                   as.integer(whichparam)
+             )
+
+    return(value)
+}
+# new in CPLEX 12.9.0 end

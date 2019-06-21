@@ -60,6 +60,7 @@ static const R_CallMethodDef callMethods[] = {
     {"setStrParm",                (DL_FUNC) &setStrParm,                3},
     {"getStrParm",                (DL_FUNC) &getStrParm,                2},
     {"getInfoStrParm",            (DL_FUNC) &getInfoStrParm,            2},
+    
     {"getParmName",               (DL_FUNC) &getParmName,               2},
     {"getParmNum",                (DL_FUNC) &getParmNum,                2},
     {"readCopyParm",              (DL_FUNC) &readCopyParm,              2},
@@ -251,9 +252,23 @@ static const R_CallMethodDef callMethods[] = {
     {"getLongParm",               (DL_FUNC) &getLongParm,               2},
     {"getInfoLongParm",           (DL_FUNC) &getInfoLongParm,           2},
 #endif
+
+/* -------------------------------------------------------------------------- */
+/* setLogFileName, getLogFilename                                             */
+/* -------------------------------------------------------------------------- */
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12080000)
+    {"setLogFileName",           (DL_FUNC) &setLogFileName,             3},
+    {"getLogFileName",           (DL_FUNC) &getLogFileName,             1},
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12080000) */
+
+/* -------------------------------------------------------------------------- */
+/* getParmHierName                                                            */
+/* -------------------------------------------------------------------------- */
+#if defined(CPX_VERSION) && (CPX_VERSION >= 12090000)
+    {"getParmHierName",           (DL_FUNC) &getParmHierName,           2},
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12090000) */
     {NULL, NULL, 0}
 };
-
 
 /* -------------------------------------------------------------------------- */
 
