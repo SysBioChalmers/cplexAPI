@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------#
 
 #  cplex_checkAPI.R
-#  R Interface to C API of IBM ILOG CPLEX Version 12.1 to 12.6.
+#  R Interface to C API of IBM ILOG CPLEX Version 12.1 to 12.10.
 #
 #  Copyright (C) 2011-2014 Gabriel Gelius-Dietrich, Dpt. for Bioinformatics,
 #  Institute for Informatics, Heinrich-Heine-University, Duesseldorf, Germany.

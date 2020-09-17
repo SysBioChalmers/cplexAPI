@@ -1,5 +1,5 @@
 /* init.c
-   R Interface to C API of IBM ILOG CPLEX Version 12.1 to 12.6.
+   R Interface to C API of IBM ILOG CPLEX Version 12.1 to 12.10.
 
    Copyright (C) 2011-2014 Gabriel Gelius-Dietrich, Dpt. for Bioinformatics,
    Institute for Informatics, Heinrich-Heine-University, Duesseldorf, Germany.
@@ -40,6 +40,7 @@ static const R_CallMethodDef callMethods[] = {
     {"isCPLEXtermPtr",            (DL_FUNC) &isCPLEXtermPtr,            1},
     {"isNULLptr",                 (DL_FUNC) &isNULLptr,                 1},
     {"initCPLEX",                 (DL_FUNC) &initCPLEX,                 0},
+    {"finalizeCPLEX",             (DL_FUNC) &finalizeCPLEX,             0},
     {"getErrorStr",               (DL_FUNC) &getErrorStr,               2},
     {"getStatStr",                (DL_FUNC) &getStatStr,                2},
     {"closeEnv",                  (DL_FUNC) &closeEnv,                  1},
@@ -134,7 +135,6 @@ static const R_CallMethodDef callMethods[] = {
     {"cleanupCoef",               (DL_FUNC) &cleanupCoef,               3},
     {"copyStart",                 (DL_FUNC) &copyStart,                 8},
     {"copyBase",                  (DL_FUNC) &copyBase,                  4},
-    {"copyPartBase",              (DL_FUNC) &copyPartBase,              8},
     {"getBase",                   (DL_FUNC) &getBase,                   2},
     {"baseWrite",                 (DL_FUNC) &baseWrite,                 3},
     {"readCopyBase",              (DL_FUNC) &readCopyBase,              3},
@@ -270,13 +270,7 @@ static const R_CallMethodDef callMethods[] = {
     {NULL, NULL, 0}
 };
 
-/* -------------------------------------------------------------------------- */
-
 void R_init_cplexAPI(DllInfo *info) {
     R_registerRoutines(info, NULL, callMethods, NULL, NULL);
     R_useDynamicSymbols(info, FALSE);
 }
-
-
-
-

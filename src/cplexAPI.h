@@ -1,5 +1,5 @@
 /* cplexAPI.h
-   R Interface to C API of IBM ILOG CPLEX Version 12.1 to 12.6.
+   R Interface to C API of IBM ILOG CPLEX Version 12.1 to 12.10.
 
    Copyright (C) 2011-2014 Gabriel Gelius-Dietrich, Dpt. for Bioinformatics,
    Institute for Informatics, Heinrich-Heine-University, Duesseldorf, Germany.
@@ -70,6 +70,9 @@ SEXP getStatStr(SEXP env, SEXP stat);
 
 /* initialize cplex */
 SEXP initCPLEX(void);
+
+/* call cplex finalizer */
+SEXP finalizeCPLEX(void);
 
 /* close cplex environment */
 SEXP closeEnv(SEXP env);
@@ -374,11 +377,6 @@ SEXP copyStart(SEXP env, SEXP lp,
 
 /* copy a basis into a problem object */
 SEXP copyBase(SEXP env, SEXP lp, SEXP cstat, SEXP rstat);
-
-/* copy a partial basis into an LP problem object */
-SEXP copyPartBase(SEXP env, SEXP lp,
-                  SEXP ncind, SEXP cind, SEXP cstat,
-                  SEXP nrind, SEXP rind, SEXP rstat);
 
 /* access the basis resident in a problem object */
 SEXP getBase(SEXP env, SEXP lp);

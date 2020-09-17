@@ -1,4 +1,4 @@
-AC_INIT([cplexAPI], [1.3.6], [mayo.roettger@hhu.de])
+AC_INIT([cplexAPI], [1.4.0], [mayo.roettger@hhu.de])
 
 ## adopted from configure.ac in Rcplex_0.3-0
 
@@ -23,7 +23,7 @@ fi
 
 dnl # GNU R default settings
 CC=`"${R_HOME}/bin/R" CMD config CC`
-CPP=`"${R_HOME}/bin/R" CMD config CPP`
+#CPP=`"${R_HOME}/bin/R" CMD config CPP`
 CFLAGS=`"${R_HOME}/bin/R" CMD config CFLAGS`
 CPPFLAGS=`"${R_HOME}/bin/R" CMD config CPPFLAGS`
 AC_PROG_CC
@@ -152,11 +152,12 @@ dnl # install directory (guess)
 if test [ "$ARGS_OK" = "FALSE" -a -z "$CPLEX_DIR" ] ; then
 
     AC_PATH_PROG(CPLEX_BIN, cplex, "NONE")
-    
+    AC_MSG_NOTICE([NOTICE $CPLEX_BIN ermittelt])
     if test [ "$CPLEX_BIN" = "NONE" ] ; then
         AC_MSG_ERROR([CPLEX interactive optimizer not found])
     else
         CPLEX_DIR=`AS_DIRNAME(["$CPLEX_BIN"])`
+        dnl # get name of last folder in the path. This is the MACHINE.
         MACHINE=`expr //$CPLEX_DIR : '.*/\(.*\)'`
         CPLEX_DIR=`AS_DIRNAME(["$CPLEX_DIR"])`
         if test [ -z "$MACHINE" -o ! -d "${CPLEX_DIR}/${MACHINE}" ] ; then
@@ -171,14 +172,21 @@ fi
 dnl # install directory (--with-cplex-dir)
 if test [ "$ARGS_OK" = "FALSE" ] ; then
 
-dnl check for awk
+dnl # check for awk
     AC_PROG_AWK
 
     if test [ ! -d "$CPLEX_DIR/include" ] ; then
-        AC_MSG_ERROR([CPLEX install directory not found: $CPLEX_DIR/include does not exist])
+        if test [ -d "$CPLEX_DIR/cplex/include" ] ; then
+            dnl # if user set only the name of the installation directory
+            dnl # and not the cplex directory inside it
+            CPLEX_DIR="$CPLEX_DIR/cplex"
+        else
+            AC_MSG_ERROR([CPLEX install directory not found: $CPLEX_DIR/include does not exist])
+        fi
     fi
 
     if test [ -z "$MACHINE" ] ; then
+        dnl # extract first directory name within cplex lib directory:
         MACHINE=`ls -l ${CPLEX_DIR}/lib | ${AWK} '($1 ~ /^d/) { print $NF }' | head -n 1`
         if test [ -z "$MACHINE" -o ! -d "$CPLEX_DIR/lib/${MACHINE}" ] ; then
             AC_MSG_ERROR([could not determine platform type])
@@ -204,6 +212,9 @@ dnl check for awk
     
     if test [ "${MAKEFILEVERSION}" = "-lcplex" ] ; then
         CPLEX_LIBS="-L${CPLEXLIBDIR} `${AWK} 'BEGIN {ORS = " "} /^CLNFLAGS/ { for (i=3;i<=NF;++i) print $i }' ${CPLEX_MAKEFILE}`"
+    elif test "${MAKEFILEVERSION}" = '-l$(CPLEXLIB)' ; then
+        dnl # adaptation to newer versions of CPLEX
+        CPLEX_LIBS="-L${CPLEXLIBDIR} -lcplex `${AWK} 'BEGIN {ORS = " "} /^CLNFLAGS/ { for (i=4;i<=NF;++i) print $i }' ${CPLEX_MAKEFILE}`"
     else
         CPLEX_LIBS="-L${CPLEXLIBDIR} `${AWK} 'BEGIN {ORS = " "} /^CLNFLAGS/ { for (i=4;i<=NF;++i) print $i }' ${CPLEX_MAKEFILE}`"
     fi
@@ -239,7 +250,8 @@ fi
 
 dnl # debugging routines
 if test [ -n "${CPLEX_CHECK_PATH}" -a "${NO_CHECK}" = "FALSE" ] ; then
-    if test [ -e "${CPLEX_CHECK_PATH}/check.c" -a -r "${CPLEX_CHECK_PATH}/check.c" ] ; then
+    dnl # removed because redundant check -e: if test [ -e "${CPLEX_CHECK_PATH}/check.c" -a -r "${CPLEX_CHECK_PATH}/check.c" ] ; then
+    if test [ -r "${CPLEX_CHECK_PATH}/check.c" ] ; then
         cp ${CPLEX_CHECK_PATH}/check.c src/
         if test [ -r "src/check.c" ] ; then
             echo "#define printf Rprintf" | cat - src/check.c > src/tmp.c
@@ -288,6 +300,8 @@ dnl # --------------------------------------------------------------------
 AC_SUBST(PKG_CFLAGS)
 AC_SUBST(PKG_LIBS)
 AC_SUBST(PKG_CPPFLAGS)
-AC_OUTPUT(src/Makevars)
+AC_CONFIG_FILES(src/Makevars)
+AC_OUTPUT
+dnl # removed deprecated: AC_OUTPUT(src/Makevars)
 
 exit 0

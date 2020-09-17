@@ -1,5 +1,5 @@
 /* cplexAPI.c
-   R Interface to C API of IBM ILOG CPLEX Version 12.1 to 12.6.
+   R Interface to C API of IBM ILOG CPLEX Version 12.1 to 12.10.
 
    Copyright (C) 2011-2014 Gabriel Gelius-Dietrich, Dpt. for Bioinformatics,
    Institute for Informatics, Heinrich-Heine-University, Duesseldorf, Germany.
@@ -230,6 +230,17 @@ SEXP initCPLEX(void) {
     tagCPLEXfile        = Rf_install("TYPE_CPLEX_FILE");
     tagCPLEXchannel     = Rf_install("TYPE_CPLEX_CHANNEL");
     tagCPLEXtermination = Rf_install("TYPE_CPLEX_TERMINATION");
+    
+    CPXinitialize();
+    
+    return R_NilValue;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* call CPLEX finalizer */
+SEXP finalizeCPLEX(void) {
+    CPXfinalize();
     return R_NilValue;
 }
 
@@ -3302,36 +3313,6 @@ SEXP copyBase(SEXP env, SEXP lp, SEXP cstat, SEXP rstat) {
     status = CPXcopybase(R_ExternalPtrAddr(env), R_ExternalPtrAddr(lp),
                          rcstat, rrstat
                         );
-    if (status != 0) {
-        status_message(R_ExternalPtrAddr(env), status);
-    }
-
-    out = Rf_ScalarInteger(status);
-
-    return out;
-}
-
-
-/* -------------------------------------------------------------------------- */
-/* copy a partial basis into an LP problem object */
-SEXP copyPartBase(SEXP env, SEXP lp,
-                  SEXP ncind, SEXP cind, SEXP cstat,
-                  SEXP nrind, SEXP rind, SEXP rstat) {
-
-    SEXP out = R_NilValue;
-
-    int *rcind  = INTEGER(cind);
-    int *rrind  = INTEGER(rind);
-    int *rcstat = INTEGER(cstat);
-    int *rrstat = INTEGER(rstat);
-
-    checkEnv(env);
-    checkProb(lp);
-
-    status = CPXcopypartialbase(R_ExternalPtrAddr(env), R_ExternalPtrAddr(lp),
-                                Rf_asInteger(ncind), rcind, rcstat,
-                                Rf_asInteger(nrind), rrind, rrstat
-                               );
     if (status != 0) {
         status_message(R_ExternalPtrAddr(env), status);
     }

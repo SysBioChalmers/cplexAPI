@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------#
 
 #  cplexAPI.R
-#  R Interface to C API of IBM ILOG CPLEX Version 12.1 to 12.6.
+#  R Interface to C API of IBM ILOG CPLEX Version 12.1 to 12.10.
 #
 #  Copyright (C) 2011-2014 Gabriel Gelius-Dietrich, Dpt. for Bioinformatics,
 #  Institute for Informatics, Heinrich-Heine-University, Duesseldorf, Germany.
@@ -1667,26 +1667,6 @@ copyBaseCPLEX <- function(env, lp, cstat, rstat) {
                     cplexPointer(env),
                     cplexPointer(lp),
                     as.integer(cstat),
-                    as.integer(rstat)
-              )
-
-    return(status)
-}
-
-
-#------------------------------------------------------------------------------#
-
-copyPartBaseCPLEX <- function(env, lp, ncind, cind, cstat,
-                                       nrind, rind, rstat) {
-
-    status <- .Call("copyPartBase", PACKAGE = "cplexAPI",
-                    cplexPointer(env),
-                    cplexPointer(lp),
-                    as.integer(ncind),
-                    as.integer(cind),
-                    as.integer(cstat),
-                    as.integer(nrind),
-                    as.integer(rind),
                     as.integer(rstat)
               )
 

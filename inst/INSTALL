@@ -69,9 +69,7 @@ There are several ways of installing the cplexAPI package:
 
    --with-cplex-dir=PATH
    
-   with PATH being the CPLEX directory. This is not the CPLEX installation
-   directory <cplex_dir>, it is the directory including the lib/ include/ and
-   examples/ directory. Usually this is <cplex_dir>/cplex.
+   with PATH being the CPLEX directory.
 
    R CMD INSTALL --configure-args=" 
    --with-cplex-dir='<cplex_dir>/cplex'" \
@@ -88,7 +86,7 @@ There are several ways of installing the cplexAPI package:
    This procedure will try to find the CPLEX interactive optimizer, or the
    CPLEX_BIN environment variable pointing to the CPLEX interactive optimizer
    will be used. The directory two levels above is used as CPLEX directory, all
-   other information is taken from teh CPLEX example Makefile as in #3 above.
+   other information is taken from the CPLEX example Makefile as in #3 above.
 
 
 # ---------------------------------------------------------------------------- #
@@ -99,10 +97,14 @@ For the installation on Windows systems the file Makewars.win in src/ is
 required. The file looks like this:
 
 PKG_CPPFLAGS=-g -D_R_=1 -DUSE_R=1 -I"${CPLEX_STUDIO_DIR}\cplex\include"
-PKG_LIBS=-L"${CPLEX_STUDIO_LIB32}" -L"${CPLEX_STUDIO_LIB64}" -lm -lcplex124
+PKG_LIBS=-L"${CPLEX_STUDIO_LIB}" -lm -lcplex12100
 
-with the environment variable CPLEX_PATH being the installation directory
-of CPLEX. This procedure was tested successfully on 32-bit Windows XP.
+with the environment variable CPLEX_STUDIO_DIR being the installation directory
+of CPLEX and CPLEX_STUDIO_LIB being the library directory of CPLEX (for example
+C:/PROGRA~1/IBM/ILOG/CPLEX_Studio128/cplex/bin/x64_win64). 
+
+This procedure was tested successfully with IBM ILOG CPLEX 12.10  
+on 64-bit Windows 10 using Rtools 3.5.
 
 
 # ---------------------------------------------------------------------------- #

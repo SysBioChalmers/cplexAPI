@@ -55,7 +55,6 @@ CPXcopylp                    <- cplexAPI::copyLpCPLEX
 CPXcopylpwnames              <- cplexAPI::copyLpwNamesCPLEX
 CPXcopyobjname               <- cplexAPI::copyObjNameCPLEX
 CPXcopyorder                 <- cplexAPI::copyOrderCPLEX
-CPXcopypartialbase           <- cplexAPI::copyPartBaseCPLEX
 CPXcopyqpsep                 <- cplexAPI::copyQPsepCPLEX
 CPXcopyquad                  <- cplexAPI::copyQuadCPLEX
 CPXcopystart                 <- cplexAPI::copyStartCPLEX
