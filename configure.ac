@@ -1,4 +1,4 @@
-AC_INIT([cplexAPI], [1.4.0], [mayo.roettger@hhu.de])
+AC_INIT([cplexAPI], [1.4.1], [mayo.roettger@hhu.de])
 
 ## adopted from configure.ac in Rcplex_0.3-0
 
@@ -154,7 +154,12 @@ if test [ "$ARGS_OK" = "FALSE" -a -z "$CPLEX_DIR" ] ; then
     AC_PATH_PROG(CPLEX_BIN, cplex, "NONE")
     AC_MSG_NOTICE([NOTICE $CPLEX_BIN ermittelt])
     if test [ "$CPLEX_BIN" = "NONE" ] ; then
-        AC_MSG_ERROR([CPLEX interactive optimizer not found])
+        dnl # Try Mac OS default folder guess
+        AC_PROG_AWK
+        CPLEX_DIR=`ls -ld /Applications/CPLEX_Studio* |${AWK} '($1 ~ /^d/) { print $NF }' | head -n 1`
+        if test [ -z "$CPLEX_DIR" -o ! -d "$CPLEX_DIR" ] ; then
+            AC_MSG_ERROR([CPLEX interactive optimizer not found])
+        fi
     else
         CPLEX_DIR=`AS_DIRNAME(["$CPLEX_BIN"])`
         dnl # get name of last folder in the path. This is the MACHINE.

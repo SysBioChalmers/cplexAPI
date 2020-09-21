@@ -86,7 +86,9 @@ There are several ways of installing the cplexAPI package:
    This procedure will try to find the CPLEX interactive optimizer, or the
    CPLEX_BIN environment variable pointing to the CPLEX interactive optimizer
    will be used. The directory two levels above is used as CPLEX directory, all
-   other information is taken from the CPLEX example Makefile as in #3 above.
+   other information is taken from the CPLEX example Makefile as in #3 above. 
+   In case, the directory could not be determined on Mac OS, the default 
+   installation directory will be used.
 
 
 # ---------------------------------------------------------------------------- #

@@ -4,6 +4,17 @@
 \title{cplexAPI News}
 \encoding{UTF-8}
 % ---------------------------------------------------------------------------- %
+\section{Changes in version 1.4.1 2020-09-21}{
+  \itemize{
+    \item Adaptation of configure script to guess CPLEX installation directory on Mac OS, if neither environment variables 
+    PKG_CPPFLAGS and PKG_LIBS, nor configure arguments --with-cplex-include and --with-cplex-lib are given, and option 
+    --with-cplex-dir was not given and respective directory could not be extracted from the path variable.
+    \item Small change in INSTALL file according to Mac OS installation information.
+  }
+}
+
+
+% ---------------------------------------------------------------------------- %
 \section{Changes in version 1.4.0 2020-09-17}{
   \itemize{
     \item Removed function \code{copyPartBaseCPLEX}, because corresponding CPLEX function \code{CPXcopypartialbase} was removed in CPLEX
