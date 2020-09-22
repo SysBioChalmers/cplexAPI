@@ -3198,7 +3198,7 @@ fi
   test -n "$AWK" && break
 done
 
-        CPLEX_DIR=`ls -ld /Applications/CPLEX_Studio* |${AWK} '($1 ~ /^d/) { print $NF }' | head -n 1`
+                CPLEX_DIR=`ls -ldt /Applications/CPLEX_Studio* |${AWK} '($1 ~ /^d/) { print $NF }' | head -n 1`
         if test  -z "$CPLEX_DIR" -o ! -d "$CPLEX_DIR"  ; then
             as_fn_error $? "CPLEX interactive optimizer not found" "$LINENO" 5
         fi

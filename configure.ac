@@ -156,7 +156,8 @@ if test [ "$ARGS_OK" = "FALSE" -a -z "$CPLEX_DIR" ] ; then
     if test [ "$CPLEX_BIN" = "NONE" ] ; then
         dnl # Try Mac OS default folder guess
         AC_PROG_AWK
-        CPLEX_DIR=`ls -ld /Applications/CPLEX_Studio* |${AWK} '($1 ~ /^d/) { print $NF }' | head -n 1`
+        dnl # Take last modified CPLEX_Studio* directory
+        CPLEX_DIR=`ls -ldt /Applications/CPLEX_Studio* |${AWK} '($1 ~ /^d/) { print $NF }' | head -n 1`
         if test [ -z "$CPLEX_DIR" -o ! -d "$CPLEX_DIR" ] ; then
             AC_MSG_ERROR([CPLEX interactive optimizer not found])
         fi

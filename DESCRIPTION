@@ -2,7 +2,7 @@ Package: cplexAPI
 Type: Package
 Title: R Interface to C API of IBM ILOG CPLEX
 Version: 1.4.1
-Date: 2020-09-21
+Date: 2020-09-22
 Authors@R: c(person("Mayo", "Roettger", role = "cre", email = "mayo.roettger@hhu.de"),
              person("Gabriel", "Gelius-Dietrich", role = "aut", email = "geliudie@uni-duesseldorf.de"),
              person(c("C.", "Jonathan"), "Fritzemeier", role = c("ctb"), email = "clausjonathan.fritzemeier@uni-duesseldorf.de"))
@@ -14,7 +14,7 @@ License: GPL-3 | file LICENSE
 LazyLoad: yes
 Collate: generics.R cplexConst.R cplexErrorClass.R cplexPtrClass.R
         cplex.R cplexAPI.R cplex_checkAPI.R cplex_longparamAPI.R zzz.R
-Packaged: 2020-09-21 11:49:00 UTC; mayo
+Packaged: 2020-09-22 08:36:00 UTC; mayo
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2020-09-21 13:49:00
+Date/Publication: 2020-09-22 10:36:00
