@@ -2030,6 +2030,7 @@ getRowInfeasCPLEX <- function(env, lp, begin, end, sol = NULL) {
 }
 
 
+# removed in CPLEX >= 20.1.0 (dummy) begin
 #------------------------------------------------------------------------------#
 
 refineConflictCPLEX <- function(env, lp) {
@@ -2041,6 +2042,7 @@ refineConflictCPLEX <- function(env, lp) {
 
     return(cplexError(rcconf))
 }
+# removed in CPLEX >= 20.1.0 (dummy) end
 
 
 #------------------------------------------------------------------------------#
@@ -2225,6 +2227,7 @@ solWriteCPLEX <- function(env, lp, fname) {
 }
 
 
+# removed in CPLEX >= 20.1.0 (dummy) begin
 #------------------------------------------------------------------------------#
 
 readCopySolCPLEX <- function(env, lp, fname) {
@@ -2237,6 +2240,7 @@ readCopySolCPLEX <- function(env, lp, fname) {
 
     return(status)
 }
+# removed in CPLEX >= 20.1.0 (dummy) end
 
 
 #------------------------------------------------------------------------------#
@@ -2893,6 +2897,7 @@ getMIPstartIndexCPLEX <- function(env, lp, iname) {
 }
 
 
+# removed in CPLEX >= 20.1.0 (dummy) begin
 #------------------------------------------------------------------------------#
 
 refineMIPstartConflictCPLEX <- function(env, lp, mipstartindex) {
@@ -2905,6 +2910,7 @@ refineMIPstartConflictCPLEX <- function(env, lp, mipstartindex) {
 
     return(cplexError(rcconf))
 }
+# removed in CPLEX >= 20.1.0 (dummy) end
 
 
 #------------------------------------------------------------------------------#
@@ -3263,3 +3269,21 @@ getParmHierNameCPLEX <- function(env, whichparam) {
     return(value)
 }
 # new in CPLEX 12.9.0 end
+
+
+# new in CPLEX >= 20.1.0 begin
+#------------------------------------------------------------------------------#
+
+readCopyStartInfoCPLEX <- function(env, lp, fname) {
+
+    status <- .Call("readCopyStartInfo", PACKAGE = "cplexAPI",
+                    cplexPointer(env),
+                    cplexPointer(lp),
+                    as.character(fname)
+            )
+
+    return(status)
+}
+# new in CPLEX >= 20.1.0 end
+
+#------------------------------------------------------------------------------#

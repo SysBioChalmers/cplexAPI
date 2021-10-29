@@ -20,7 +20,7 @@
 
 \references{
   The IBM ILOG CPLEX home page at
-  \url{https://www.ibm.com/support/knowledgecenter/SSSA5P}.
+  \url{https://www.ibm.com/docs/en}.
 }
 
 \author{

@@ -9,7 +9,9 @@
 \description{
   Low level interface function to the IBM ILOG CPLEX function
   \code{CPXrefinemipstartconflict}.  Consult the IBM ILOG CPLEX documentation
-  for more detailed information.
+  for more detailed information. This function has no functionality
+  from IBM ILOG CPLEX >= 20.1.0 on, where \code{CPXrefinemipstartconflict} has
+  been deprecated or removed. See \code{refineMipStartConflictCPLEX}.
 }
 
 \usage{
@@ -46,7 +48,7 @@
 
 \references{
   The IBM ILOG CPLEX home page at
-  \url{https://www.ibm.com/support/knowledgecenter/SSSA5P}.
+  \url{https://www.ibm.com/docs/en}.
 }
 
 \author{

@@ -185,10 +185,12 @@ CPXreadcopymipstarts         <- cplexAPI::readCopyMIPstartsCPLEX
 CPXreadcopyorder             <- cplexAPI::readCopyOrderCPLEX
 CPXreadcopyparam             <- cplexAPI::readCopyParmCPLEX
 CPXreadcopyprob              <- cplexAPI::readCopyProbCPLEX
+# removed in CPLEX >= 20.1.0 (dummy) begin
 CPXreadcopysol               <- cplexAPI::readCopySolCPLEX
 CPXrefineconflict            <- cplexAPI::refineConflictCPLEX
-CPXrefineconflictext         <- cplexAPI::refineConflictExtCPLEX
 CPXrefinemipstartconflict    <- cplexAPI::refineMIPstartConflictCPLEX
+# removed in CPLEX >= 20.1.0 (dummy) end
+CPXrefineconflictext         <- cplexAPI::refineConflictExtCPLEX
 CPXrefinemipstartconflictext <- cplexAPI::refineMIPstartConflictExtCPLEX
 CPXrhssa                     <- cplexAPI::rhsSaCPLEX
 CPXsetdblparam               <- cplexAPI::setDblParmCPLEX
@@ -219,3 +221,7 @@ CPXgetlogfilename            <- cplexAPI::getLogFileNameCPLEX
 # new in CPLEX 12.9.0 begin
 CPXgetparamhiername          <- cplexAPI::getParmHierNameCPLEX
 # new in CPLEX 12.9.0 end
+
+# new in CPLEX >= 20.1.0 begin
+CPXreadcopystartinfo         <- cplexAPI::readCopyStartInfoCPLEX
+# new in CPLEX >= 20.1.0 end

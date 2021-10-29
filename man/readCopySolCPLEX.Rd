@@ -9,7 +9,9 @@
 \description{
   Low level interface function to the IBM ILOG CPLEX function
   \code{CPXreadcopysol}.  Consult the IBM ILOG CPLEX documentation for more
-  detailed information.
+  detailed information. This function has no functionality
+  from IBM ILOG CPLEX >= 20.1.0 on, where \code{CPXreadcopysol} has
+  been deprecated or removed. See \code{readCopyStartInfoCPLEX}.
 }
 
 \usage{
@@ -28,7 +30,7 @@
     IBM ILOG CPLEX problem object.
   }
   \item{fname}{
-    Single character value giving the filname to read from.
+    Single character value giving the filename to read from.
   }
 }
 
@@ -43,7 +45,7 @@
 
 \references{
   The IBM ILOG CPLEX home page at
-  \url{https://www.ibm.com/support/knowledgecenter/SSSA5P}.
+  \url{https://www.ibm.com/docs/en}.
 }
 
 \author{

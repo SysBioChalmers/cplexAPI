@@ -190,10 +190,7 @@ readCopyMIPstartsCPLEX,
 readCopyOrderCPLEX,
 readCopyParmCPLEX,
 readCopyProbCPLEX,
-readCopySolCPLEX,
-refineConflictCPLEX,
 refineConflictExtCPLEX,
-refineMIPstartConflictCPLEX,
 refineMIPstartConflictExtCPLEX,
 return_codeCPLEX,
 rhsSaCPLEX,
@@ -923,7 +920,16 @@ CPXPARAM_MultiObjective_Display,
 CPXPARAM_ParamDisplay,
 CPXPARAM_Preprocessing_Folding,
 CPXPARAM_Read_WarningLimit,
-getParmHierNameCPLEX
+getParmHierNameCPLEX,
 # new in CPLEX 12.9.0 end
 
+# removed in CPLEX >= 20.1.0 (dummy) begin
+readCopySolCPLEX,
+refineConflictCPLEX,
+refineMIPstartConflictCPLEX,
+# removed in CPLEX >= 20.1.0 (dummy) end
+
+# new in CPLEX 20.1.0 begin
+readCopyStartInfoCPLEX
+# new in CPLEX 20.1.0 end
 )

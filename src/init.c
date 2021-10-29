@@ -61,10 +61,10 @@ static const R_CallMethodDef callMethods[] = {
     {"setStrParm",                (DL_FUNC) &setStrParm,                3},
     {"getStrParm",                (DL_FUNC) &getStrParm,                2},
     {"getInfoStrParm",            (DL_FUNC) &getInfoStrParm,            2},
-    
     {"getParmName",               (DL_FUNC) &getParmName,               2},
     {"getParmNum",                (DL_FUNC) &getParmNum,                2},
     {"readCopyParm",              (DL_FUNC) &readCopyParm,              2},
+    {"readCopySol",               (DL_FUNC) &readCopySol,               3},
     {"writeParm",                 (DL_FUNC) &writeParm,                 2},
     {"getParmType",               (DL_FUNC) &getParmType,               2},
     {"getChgParm",                (DL_FUNC) &getChgParm,                1},
@@ -170,7 +170,6 @@ static const R_CallMethodDef callMethods[] = {
     {"solnInfo",                  (DL_FUNC) &solnInfo,                  2},
     {"solution",                  (DL_FUNC) &solution,                  2},
     {"solWrite",                  (DL_FUNC) &solWrite,                  3},
-    {"readCopySol",               (DL_FUNC) &readCopySol,               3},
     {"getStat",                   (DL_FUNC) &getStat,                   2},
     {"getSubStat",                (DL_FUNC) &getSubStat,                2},
     {"getObjVal",                 (DL_FUNC) &getObjVal,                 2},
@@ -267,6 +266,13 @@ static const R_CallMethodDef callMethods[] = {
 #if defined(CPX_VERSION) && (CPX_VERSION >= 12090000)
     {"getParmHierName",           (DL_FUNC) &getParmHierName,           2},
 #endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12090000) */
+
+/* -------------------------------------------------------------------------- */
+/* readCopyStartInfo (CPX_VERSION >= 20010000)                                */
+/* -------------------------------------------------------------------------- */
+#if defined(CPX_VERSION) && (CPX_VERSION >= 20010000)
+    {"readCopyStartInfo",         (DL_FUNC) &readCopyStartInfo,         3},
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 20010000) */
     {NULL, NULL, 0}
 };
 

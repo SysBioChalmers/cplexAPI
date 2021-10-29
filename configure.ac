@@ -1,4 +1,4 @@
-AC_INIT([cplexAPI], [1.4.1], [mayo.roettger@hhu.de])
+AC_INIT([cplexAPI],[1.5.0],[mayo.roettger@hhu.de])
 
 ## adopted from configure.ac in Rcplex_0.3-0
 
@@ -57,16 +57,14 @@ dnl # get arguments
 dnl # --------------------------------------------------------------------
 
 AC_ARG_WITH(cplex-include,
-            AC_HELP_STRING([--with-cplex-include=PATH],
-                           [location of CPLEX include directory]
-                          ),
+            AS_HELP_STRING([--with-cplex-include=PATH],[location of CPLEX include directory
+                          ]),
             [CPLEX_INCLUDE=$withval],
             [CPLEX_INCLUDE=""])
 
 AC_ARG_WITH(cplex-lib,
-            AC_HELP_STRING([--with-cplex-lib=PATH],
-                           [location of CPLEX callable library]
-                          ),
+            AS_HELP_STRING([--with-cplex-lib=PATH],[location of CPLEX callable library
+                          ]),
             [CPLEX_LIB=$withval],
             [CPLEX_LIB=""])
 
@@ -93,9 +91,8 @@ AC_ARG_WITH(cplex-dir,
 
 dnl # CPLEX file check.c for debugging
 AC_ARG_WITH(cplex-check,
-            AC_HELP_STRING([--with-cplex-check=PATH],
-                           [location of CPLEX file check.c]
-                          ),
+            AS_HELP_STRING([--with-cplex-check=PATH],[location of CPLEX file check.c
+                          ]),
             [CPLEX_CHECK=$withval],
             [CPLEX_CHECK=""])
 
@@ -308,6 +305,7 @@ AC_SUBST(PKG_LIBS)
 AC_SUBST(PKG_CPPFLAGS)
 AC_CONFIG_FILES(src/Makevars)
 AC_OUTPUT
-dnl # removed deprecated: AC_OUTPUT(src/Makevars)
+dnl # removed deprecated: AC_CONFIG_FILES([src/Makevars])
+AC_OUTPUT
 
 exit 0

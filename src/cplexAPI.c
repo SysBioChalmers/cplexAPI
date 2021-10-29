@@ -3995,44 +3995,6 @@ SEXP getRowInfeas(SEXP env, SEXP lp, SEXP sol, SEXP begin, SEXP end) {
 
 
 /* -------------------------------------------------------------------------- */
-/* identify a minimal conflict for the infeasibility of the linear constraints
-   and the variable bounds in the current problem */
-SEXP refineConflict(SEXP env, SEXP lp) {
-
-    SEXP out   = R_NilValue;
-    SEXP listn = R_NilValue;
-
-    int ncr = 0, ncc = 0;
-
-    checkEnv(env);
-    checkProb(lp);
-
-    status = CPXrefineconflict(R_ExternalPtrAddr(env), R_ExternalPtrAddr(lp),
-                               &ncr, &ncc
-                              );
-    if (status != 0) {
-        status_message(R_ExternalPtrAddr(env), status);
-        out = cpx_error(status);
-    }
-    else {
-        PROTECT(out = Rf_allocVector(VECSXP, 2));
-        SET_VECTOR_ELT(out, 0, Rf_ScalarInteger(ncr));
-        SET_VECTOR_ELT(out, 1, Rf_ScalarInteger(ncc));
-
-        PROTECT(listn = Rf_allocVector(STRSXP, 2));
-        SET_STRING_ELT(listn, 0, Rf_mkChar("confnumrows"));
-        SET_STRING_ELT(listn, 1, Rf_mkChar("confnumcols"));
-
-        Rf_setAttrib(out, R_NamesSymbol, listn);
-
-        UNPROTECT(2);
-    }
-
-    return out;
-}
-
-
-/* -------------------------------------------------------------------------- */
 /* identify a minimal conflict for the infeasibility of the current problem
    or a subset of constraints of the current problem */
 SEXP refineConflictExt(SEXP env, SEXP lp, SEXP grpcnt, SEXP concnt,
@@ -4490,31 +4452,6 @@ SEXP solWrite(SEXP env, SEXP lp, SEXP fname) {
     checkProb(lp);
 
     status = CPXsolwrite(R_ExternalPtrAddr(env), R_ExternalPtrAddr(lp), rfname);
-    if (status != 0) {
-        status_message(R_ExternalPtrAddr(env), status);
-    }
-
-    out = Rf_ScalarInteger(status);
-
-    return out;
-}
-
-
-/* -------------------------------------------------------------------------- */
-/* read a solution from a SOL format file, and copies that basis or solution
-   into a problem object */
-SEXP readCopySol(SEXP env, SEXP lp, SEXP fname) {
-
-    SEXP out = R_NilValue;
-
-    const char *rfname = CHAR(STRING_ELT(fname, 0));
-
-    checkEnv(env);
-    checkProb(lp);
-
-    status = CPXreadcopysol(R_ExternalPtrAddr(env), R_ExternalPtrAddr(lp),
-                            rfname
-                           );
     if (status != 0) {
         status_message(R_ExternalPtrAddr(env), status);
     }
@@ -5893,46 +5830,6 @@ SEXP getMIPstartIndex(SEXP env, SEXP lp, SEXP iname) {
 
 
 /* -------------------------------------------------------------------------- */
-/* refine a conflict in order to determine why a given MIP start is not
-   feasible */
-SEXP refineMIPstartConflict(SEXP env, SEXP lp, SEXP mipstartindex) {
-
-    SEXP out   = R_NilValue;
-    SEXP listn = R_NilValue;
-
-    int ncr = 0, ncc = 0;
-
-    checkEnv(env);
-    checkProb(lp);
-
-    status = CPXrefinemipstartconflict(R_ExternalPtrAddr(env),
-                                       R_ExternalPtrAddr(lp),
-                                       Rf_asInteger(mipstartindex),
-                                       &ncr, &ncc
-                                      );
-    if (status != 0) {
-        status_message(R_ExternalPtrAddr(env), status);
-        out = cpx_error(status);
-    }
-    else {
-        PROTECT(out = Rf_allocVector(VECSXP, 2));
-        SET_VECTOR_ELT(out, 0, Rf_ScalarInteger(ncr));
-        SET_VECTOR_ELT(out, 1, Rf_ScalarInteger(ncc));
-
-        PROTECT(listn = Rf_allocVector(STRSXP, 2));
-        SET_STRING_ELT(listn, 0, Rf_mkChar("confnumrows"));
-        SET_STRING_ELT(listn, 1, Rf_mkChar("confnumcols"));
-
-        Rf_setAttrib(out, R_NamesSymbol, listn);
-
-        UNPROTECT(2);
-    }
-
-    return out;
-}
-
-
-/* -------------------------------------------------------------------------- */
 /* identify a minimal conflict for the infeasibility of the MIP start or a
    subset of the constraints in the model */
 SEXP refineMIPstartConflictExt(SEXP env, SEXP lp, SEXP mipstartindex,
@@ -6677,3 +6574,158 @@ SEXP getParamHierName(SEXP env, SEXP whichparam) {
 }
 #endif /* defined(CPX_VERSION) && (CPX_VERSION >= 12090000) */
 
+
+#if defined(CPX_VERSION) && (CPX_VERSION < 20010000)
+/* -------------------------------------------------------------------------- */
+/* read a solution from a SOL format file, and copies that basis or solution
+   into a problem object */
+SEXP readCopySol(SEXP env, SEXP lp, SEXP fname) {
+
+    SEXP out = R_NilValue;
+
+    const char *rfname = CHAR(STRING_ELT(fname, 0));
+
+    checkEnv(env);
+    checkProb(lp);
+
+    status = CPXreadcopysol(R_ExternalPtrAddr(env), R_ExternalPtrAddr(lp),
+                            rfname
+                           );
+    if (status != 0) {
+        status_message(R_ExternalPtrAddr(env), status);
+    }
+
+    out = Rf_ScalarInteger(status);
+
+    return out;
+}
+#else
+SEXP readCopySol(SEXP env, SEXP lp, SEXP fname) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#endif /* defined(CPX_VERSION) && (CPX_VERSION < 20010000) */
+
+
+#if defined(CPX_VERSION) && (CPX_VERSION >= 20010000)
+/* -------------------------------------------------------------------------- */
+/* reads start information from a SOL format file, and copies that basis or solution
+   into a CPLEX problem object */
+SEXP readCopyStartInfo(SEXP env, SEXP lp, SEXP fname) {
+
+    SEXP out = R_NilValue;
+
+    const char *rfname = CHAR(STRING_ELT(fname, 0));
+
+    checkEnv(env);
+    checkProb(lp);
+
+    status = CPXreadcopystartinfo(R_ExternalPtrAddr(env), R_ExternalPtrAddr(lp),
+                            rfname
+                           );
+    if (status != 0) {
+        status_message(R_ExternalPtrAddr(env), status);
+    }
+
+    out = Rf_ScalarInteger(status);
+
+    return out;
+}
+#else
+SEXP readCopyStartInfo(SEXP env, SEXP lp, SEXP fname) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#endif /* defined(CPX_VERSION) && (CPX_VERSION >= 20010000) */
+
+
+#if defined(CPX_VERSION) && (CPX_VERSION < 20010000)
+/* -------------------------------------------------------------------------- */
+/* identify a minimal conflict for the infeasibility of the linear constraints
+   and the variable bounds in the current problem */
+SEXP refineConflict(SEXP env, SEXP lp) {
+
+    SEXP out   = R_NilValue;
+    SEXP listn = R_NilValue;
+
+    int ncr = 0, ncc = 0;
+
+    checkEnv(env);
+    checkProb(lp);
+
+    status = CPXrefineconflict(R_ExternalPtrAddr(env), R_ExternalPtrAddr(lp),
+                               &ncr, &ncc
+                              );
+    if (status != 0) {
+        status_message(R_ExternalPtrAddr(env), status);
+        out = cpx_error(status);
+    }
+    else {
+        PROTECT(out = Rf_allocVector(VECSXP, 2));
+        SET_VECTOR_ELT(out, 0, Rf_ScalarInteger(ncr));
+        SET_VECTOR_ELT(out, 1, Rf_ScalarInteger(ncc));
+
+        PROTECT(listn = Rf_allocVector(STRSXP, 2));
+        SET_STRING_ELT(listn, 0, Rf_mkChar("confnumrows"));
+        SET_STRING_ELT(listn, 1, Rf_mkChar("confnumcols"));
+
+        Rf_setAttrib(out, R_NamesSymbol, listn);
+
+        UNPROTECT(2);
+    }
+
+    return out;
+}
+#else
+SEXP refineConflict(SEXP env, SEXP lp) {
+    SEXP out = R_NilValue;
+    return out;
+}
+#endif /* defined(CPX_VERSION) && (CPX_VERSION < 20010000) */
+
+
+#if defined(CPX_VERSION) && (CPX_VERSION < 20010000)
+/* -------------------------------------------------------------------------- */
+/* refine a conflict in order to determine why a given MIP start is not
+   feasible */
+SEXP refineMIPstartConflict(SEXP env, SEXP lp, SEXP mipstartindex) {
+
+    SEXP out   = R_NilValue;
+    SEXP listn = R_NilValue;
+
+    int ncr = 0, ncc = 0;
+
+    checkEnv(env);
+    checkProb(lp);
+
+    status = CPXrefinemipstartconflict(R_ExternalPtrAddr(env),
+                                       R_ExternalPtrAddr(lp),
+                                       Rf_asInteger(mipstartindex),
+                                       &ncr, &ncc
+                                      );
+    if (status != 0) {
+        status_message(R_ExternalPtrAddr(env), status);
+        out = cpx_error(status);
+    }
+    else {
+        PROTECT(out = Rf_allocVector(VECSXP, 2));
+        SET_VECTOR_ELT(out, 0, Rf_ScalarInteger(ncr));
+        SET_VECTOR_ELT(out, 1, Rf_ScalarInteger(ncc));
+
+        PROTECT(listn = Rf_allocVector(STRSXP, 2));
+        SET_STRING_ELT(listn, 0, Rf_mkChar("confnumrows"));
+        SET_STRING_ELT(listn, 1, Rf_mkChar("confnumcols"));
+
+        Rf_setAttrib(out, R_NamesSymbol, listn);
+
+        UNPROTECT(2);
+    }
+
+    return out;
+}
+#else
+SEXP refineMIPstartConflict(SEXP env, SEXP lp, SEXP mipstartindex) {
+    SEXP out   = R_NilValue;
+    return out;
+}
+#endif /* defined(CPX_VERSION) && (CPX_VERSION < 20010000) */

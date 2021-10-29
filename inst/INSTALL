@@ -99,13 +99,13 @@ For the installation on Windows systems the file Makewars.win in src/ is
 required. The file looks like this:
 
 PKG_CPPFLAGS=-g -D_R_=1 -DUSE_R=1 -I"${CPLEX_STUDIO_DIR}\cplex\include"
-PKG_LIBS=-L"${CPLEX_STUDIO_LIB}" -lm -lcplex12100
+PKG_LIBS=-L"${CPLEX_STUDIO_LIB}" -lm -lcplex2010
 
 with the environment variable CPLEX_STUDIO_DIR being the installation directory
 of CPLEX and CPLEX_STUDIO_LIB being the library directory of CPLEX (for example
-C:/PROGRA~1/IBM/ILOG/CPLEX_Studio128/cplex/bin/x64_win64). 
+C:/PROGRA~1/IBM/ILOG/CPLEX_Studio1210/cplex/bin/x64_win64). 
 
-This procedure was tested successfully with IBM ILOG CPLEX 12.10  
+This procedure was tested successfully with IBM ILOG CPLEX 20.1.0  
 on 64-bit Windows 10 using Rtools 3.5.
 
 

@@ -4,6 +4,17 @@
 \title{cplexAPI News}
 \encoding{UTF-8}
 % ---------------------------------------------------------------------------- %
+\section{Changes in version 1.5.0 2020-10-29}{
+  \itemize{
+    \item Fix for CRAN issue concerning deprecated autoconf macros.
+    \item Updated invalid URLs.
+    \item Removed functions \code{readCopySolCPLEX}, \code{refineConflictCPLEX}, and \code{refineMipStartConflict}, because corresponding functions \code{CPXreadcopysol}, \code{CPXrefineconflictcplex}, and \code{CPXrefinemipstartconflict} were deprecated in Version >= 20.1.0.
+    \item Added function \code{readCopyStartInfoCPLEX} if building package with CPLEX Version >= 20.1.0.
+    \item Adaptation of Makevars.win to work with CPLEX version 20.1.0.
+  }
+}
+
+% ---------------------------------------------------------------------------- %
 \section{Changes in version 1.4.1 2020-09-22}{
   \itemize{
     \item Adaptation of configure script to guess CPLEX installation directory on Mac OS, if neither environment variables 
@@ -22,7 +33,7 @@
     \item Adaptation of configure script to extract correct linker options from example Makefile in CPLEX versions >= 10.9.0, 
     if neither environment variables PKG_CPPFLAGS and PKG_LIBS, nor configure arguments --with-cplex-include and --with-cplex-lib are given, 
     and option --with-cplex-dir was given or the respective directory could be extracted from the path variable.
-    \item Adaptation of configure script to allow more flexibitlity in specifying the CPLEX installation directory with option --with-cplex-dir.
+    \item Adaptation of configure script to allow more flexibility in specifying the CPLEX installation directory with option --with-cplex-dir.
     \item Adaptation of Makevars.win to work with CPLEX version 12.10.0.
     \item According to a comment from Daniel Junglas, CPLEX functions \code{CPXinitialize} and \code{CPXfinalize} should be called when the 
     shared library is loaded and unloaded to prevent subtle bugs. \code{CPXinitialize} is now called within cplexAPI's \code{.onload()} hook. 
@@ -67,7 +78,7 @@
 \section{Changes in version 1.3.3 2017-01-18}{
   \itemize{
     \item In CPLEX Version 1270 are the functions \code{CPXaddchannel} and
-    	\code{CPXdelchannel} removed (\url{http://www.ibm.com/support/knowledgecenter/SSSA5P_12.7.0/ilog.odms.cplex.help/CPLEX/ReleaseNotes/topics/releasenotes127/removed.html}).
+    	\code{CPXdelchannel} removed.).
   }
 }
 

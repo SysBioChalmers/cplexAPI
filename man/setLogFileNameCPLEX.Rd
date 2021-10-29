@@ -9,7 +9,7 @@
 \description{
   Low level interface function to the IBM ILOG CPLEX function
   \code{CPXsetlogfilename}. Consult the IBM ILOG CPLEX documentation for
-  more detailed information. This funtion has no functionality
+  more detailed information. This function has no functionality
   for IBM ILOG CPLEX < 12.8.0, where \code{CPXsetlogfilename} was not included.
 }
 
@@ -48,7 +48,7 @@
 
 \references{
   The IBM ILOG CPLEX home page at
-  \url{https://www.ibm.com/support/knowledgecenter/SSSA5P}.
+  \url{https://www.ibm.com/docs/en}.
 }
 
 \author{

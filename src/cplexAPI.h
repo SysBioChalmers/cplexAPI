@@ -451,10 +451,6 @@ SEXP getColInfeas(SEXP env, SEXP lp, SEXP sol, SEXP begin, SEXP end);
    linear constraints */
 SEXP getRowInfeas(SEXP env, SEXP lp, SEXP sol, SEXP begin, SEXP end);
 
-/* identify a minimal conflict for the infeasibility of the linear constraints
-   and the variable bounds in the current problem */
-SEXP refineConflict(SEXP env, SEXP lp);
-
 /* identify a minimal conflict for the infeasibility of the current problem
    or a subset of constraints of the current problem */
 SEXP refineConflictExt(SEXP env, SEXP lp, SEXP grpcnt, SEXP concnt,
@@ -500,10 +496,6 @@ SEXP solution(SEXP env, SEXP lp);
 
 /* write a solution file for the selected problem object */
 SEXP solWrite(SEXP env, SEXP lp, SEXP fname);
-
-/* read a solution from a SOL format file, and copies that basis or solution
-   into a problem object */
-SEXP readCopySol(SEXP env, SEXP lp, SEXP fname);
 
 /* access solution status of optimizations */
 SEXP getStat(SEXP env, SEXP lp);
@@ -641,10 +633,6 @@ SEXP getMIPstartName(SEXP env, SEXP lp, SEXP begin, SEXP end);
 /* search for the index number of the specified MIP start */
 SEXP getMIPstartIndex(SEXP env, SEXP lp, SEXP iname);
 
-/* refine a conflict in order to determine why a given MIP start is not
-   feasible */
-SEXP refineMIPstartConflict(SEXP env, SEXP lp, SEXP mipstartindex);
-
 /* identify a minimal conflict for the infeasibility of the MIP start or a
    subset of the constraints in the model */
 SEXP refineMIPstartConflictExt(SEXP env, SEXP lp, SEXP mipstartindex,
@@ -714,3 +702,26 @@ SEXP getLogFileName(SEXP env);
 /* get CPLEX parameter hierarchy name */
 SEXP getParmHierName(SEXP env, SEXP whichparam);
 /* new in CPLEX 12.9.0 end */
+
+/* removed in CPLEX >= 20.1.0 (dummy) begin */
+/* read a solution from a SOL format file, and copies that basis or solution
+   into a problem object */
+SEXP readCopySol(SEXP env, SEXP lp, SEXP fname);
+/* removed in CPLEX >= 20.1.0 (dummy) end */
+
+/* new in CPLEX 20.1.0 begin */
+/* get CPLEX parameter hierarchy name */
+SEXP readCopyStartInfo(SEXP env, SEXP lp, SEXP fname);
+/* new in CPLEX 20.1.0 end */
+
+/* removed in CPLEX >= 20.1.0 (dummy) begin */
+/* identify a minimal conflict for the infeasibility of the linear constraints
+   and the variable bounds in the current problem */
+SEXP refineConflict(SEXP env, SEXP lp);
+/* removed in CPLEX >= 20.1.0 (dummy) end */
+
+/* removed in CPLEX >= 20.1.0 (dummy) begin */
+/* refine a conflict in order to determine why a given MIP start is not
+   feasible */
+SEXP refineMIPstartConflict(SEXP env, SEXP lp, SEXP mipstartindex);
+/* removed in CPLEX >= 20.1.0 (dummy) end */
