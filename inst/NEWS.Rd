@@ -4,6 +4,14 @@
 \title{cplexAPI News}
 \encoding{UTF-8}
 % ---------------------------------------------------------------------------- %
+\section{Changes in version 1.5.1 2022-08-02}{
+  \itemize{
+    \item Maintainer change.
+    \item Adaptation of Makevars.win to work with CPLEX version 22.1.0.
+  }
+}
+
+% ---------------------------------------------------------------------------- %
 \section{Changes in version 1.5.0 2020-10-29}{
   \itemize{
     \item Fix for CRAN issue concerning deprecated autoconf macros.
