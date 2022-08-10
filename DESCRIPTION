@@ -3,7 +3,8 @@ Type: Package
 Title: R Interface to C API of IBM ILOG CPLEX
 Version: 1.5.1
 Date: 2022-08-03
-Authors@R: c(person("Mayo", "Roettger", role = "cre", email = "mayo.roettger@hhu.de"),
+Authors@R: c(person("Mihail", "Anton", role = "cre", email = "mihail.anton@chalmers.se"),
+             person("Mayo", "Roettger", role = "ctb", email = "mayo.roettger@hhu.de"),
              person("Gabriel", "Gelius-Dietrich", role = "aut", email = "geliudie@uni-duesseldorf.de"),
              person(c("C.", "Jonathan"), "Fritzemeier", role = c("ctb"), email = "clausjonathan.fritzemeier@uni-duesseldorf.de"))
 Depends: R (>= 2.6.0)
