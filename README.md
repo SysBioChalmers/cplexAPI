@@ -1,7 +1,6 @@
 [![DOI](https://zenodo.org/badge/460453405.svg)](https://zenodo.org/badge/latestdoi/460453405)
 
-cplexAPI
-========
+# cplexAPI
 
 R Interface to C API of IBM ILOG CPLEX, depends on IBM ILOG CPLEX (>= 12.1)
 
