@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/460453405.svg)](https://zenodo.org/badge/latestdoi/460453405)
+
 cplexAPI
 ========
 
