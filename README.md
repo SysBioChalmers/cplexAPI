@@ -2,7 +2,7 @@
 
 # cplexAPI
 
-This R Interface to C API of IBM ILOG CPLEX provides CPLEX support for [sybil](https://github.com/SysBioChalmers/sybil), and requires IBM ILOG CPLEX (>= 12.1)
+This R Interface to C API of IBM ILOG CPLEX provides CPLEX support for [sybil](https://github.com/SysBioChalmers/sybil), and requires IBM ILOG CPLEX version >= 12.1 .
 
 If you're facing any problems, please open an [issue](issues/new) or a [discussion](/discusions/new).
 
