@@ -4,7 +4,7 @@
 \title{cplexAPI News}
 \encoding{UTF-8}
 % ---------------------------------------------------------------------------- %
-\section{Changes in version 1.5.1 2022-08-02}{
+\section{Changes in version 1.5.1 2022-08-15}{
   \itemize{
     \item Maintainer change.
     \item Adaptation of Makevars.win to work with CPLEX version 22.1.0.
