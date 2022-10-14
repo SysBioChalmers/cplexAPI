@@ -4,12 +4,12 @@
 \title{cplexAPI News}
 \encoding{UTF-8}
 % ---------------------------------------------------------------------------- %
-\section{Changes in version 1.5.1 2022-08-15}{
+\section{Changes in version 1.5.1 2022-10-14}{
   \itemize{
-    \item Maintainer change.
+    %\item Maintainer change.
     \item Adaptation of Makevars.win to work with CPLEX version 22.1.0.
     \item Repository moved to GitHub and will be discontinued and archived on GitLab. 
-      New location: \url{https://github.com/SysBioChalmers/sybil-cplexAPI}.
+      New location: \url{https://github.com/SysBioChalmers/cplexAPI}.
   }
 }
 
