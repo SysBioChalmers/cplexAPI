@@ -4,9 +4,11 @@
 \title{cplexAPI News}
 \encoding{UTF-8}
 % ---------------------------------------------------------------------------- %
-\section{Changes in version 1.5.1 2022-10-18}{
+\section{Changes in version 1.5.1 2022-10-28}{
   \itemize{
     \item Maintainer change.
+    \item Added -DBUILD_CPXSTATIC to PKG_CPPFLAGS in Makevars.win to build with 
+    CPLEX 22.1.0 and RTools42.
     \item Updated Makevars.win to work with CPLEX version 22.1.0 and information 
      in INSTALL file.
     \item Adaptation of Makevars.win to work with CPLEX version 22.1.0.

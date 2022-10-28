@@ -98,7 +98,7 @@ There are several ways of installing the cplexAPI package:
 For the installation on Windows systems the file Makewars.win in src/ is
 required. The file looks like this:
 
-PKG_CPPFLAGS=-g -D_R_=1 -DUSE_R=1 -I"${CPLEX_STUDIO_DIR221}\cplex\include"
+PKG_CPPFLAGS=-g -D_R_=1 -DUSE_R=1 -I"${CPLEX_STUDIO_DIR221}\cplex\include" -DBUILDCPXSTATIC
 PKG_LIBS=-L"${CPLEX_STUDIO_DIR221}\cplex\bin\x64_win64" -lm -lcplex2210
 
 with the environment variable CPLEX_STUDIO_DIR221 being the installation directory
